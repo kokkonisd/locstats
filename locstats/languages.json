@@ -1,0 +1,17 @@
+{
+    "python": {
+        "official_name": "Python",
+        "extensions": [ ".py" ],
+        "comments": [ "#" ]
+    },
+    "c": {
+        "official_name": "C",
+        "extensions": [ ".c", ".h" ],
+        "comments": [ "//" ]
+    },
+    "c++": {
+        "official_name": "C++",
+        "extensions": [ ".cpp", ".hpp", ".cc", ".hh" ],
+        "comments": [ "//" ]
+    }
+}

@@ -3,7 +3,7 @@ import json
 import os
 
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
-EXTENSIONS_FILE = os.path.join(ROOT_DIR, "language_extensions.json")
+EXTENSIONS_FILE = os.path.join(ROOT_DIR, "languages.json")
 
 
 def get_source_files (src_dir, src_extensions):
@@ -31,7 +31,6 @@ def get_loc (file):
     with open(file, "r") as source:
         lines = source.read().split("\n")
 
-    # lines = list(filter(lambda x: len(x) > 0, lines))
     return len(lines)
 
 
@@ -41,13 +40,13 @@ def main ():
         print("Usage: locstats <language> <source dir 1> <source dir 2> ...")
         exit(1)
 
-    language = sys.argv[1]
+    language = sys.argv[1].lower()
     source_dirs = sys.argv[2:]
 
     with open(EXTENSIONS_FILE, "r") as ext:
-        extensions = json.loads(ext.read())
+        lang_data = json.loads(ext.read())
 
-    if language.lower() not in extensions:
+    if language not in lang_data:
         print(f"The language `{language}` doesn't exist or hasn't yet been "\
               "put into our database.\nIf you'd like to contribute, you can "\
               "check out locstats' GitHub page: "\
@@ -59,12 +58,13 @@ def main ():
     total_loc_count = 0
 
     for src in source_dirs:
-        source_files = get_source_files(src, extensions[language.lower()])
+        source_files = get_source_files(src,
+                                        lang_data[language]["extensions"])
         for file in source_files:
             total_loc_count += get_loc(file)
 
     print(f"You have written approximately {total_loc_count} LOC in "\
-          f"{language}.")
+          f"{lang_data[language]['official_name']}.")
 
 
 
