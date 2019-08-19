@@ -7,7 +7,8 @@ import os
 
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 EXTENSIONS_FILE = os.path.join(ROOT_DIR, "languages.json")
-
+with open(EXTENSIONS_FILE, "r") as ext:
+        lang_data = json.loads(ext.read())
 
 def get_source_files (src_dir, src_extensions):
     source_files = []
@@ -32,7 +33,13 @@ def get_source_files (src_dir, src_extensions):
 
 def get_loc (file):
     with open(file, "r") as source:
-        lines = source.read().split("\n")
+        try:
+            lines = source.read().split("\n")
+        except:
+            print(f"Could not read file `{file}` (probably because it's not "\
+                  "UTF-8). Skipping.")
+            return 0
+        
 
     return len(lines)
 
@@ -45,9 +52,6 @@ def main ():
 
     language = sys.argv[1].lower()
     source_dirs = sys.argv[2:]
-
-    with open(EXTENSIONS_FILE, "r") as ext:
-        lang_data = json.loads(ext.read())
 
     if language not in lang_data:
         print(f"The language `{language}` doesn't exist or hasn't yet been "\

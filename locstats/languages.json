@@ -7,11 +7,31 @@
     "c": {
         "official_name": "C",
         "extensions": [ ".c", ".h" ],
-        "comments": [ "//" ]
+        "comments": [ "//", "/*", "*/" ]
     },
     "c++": {
         "official_name": "C++",
         "extensions": [ ".cpp", ".hpp", ".cc", ".hh" ],
-        "comments": [ "//" ]
+        "comments": [ "//", "/*", "*/" ]
+    },
+    "java": {
+        "official_name": "Java",
+        "extensions": [ ".java" ],
+        "comments": [ "//", "/*", "*/" ]
+    },
+    "javascript": {
+        "official_name": "JavaScript",
+        "extensions": [ ".js" ],
+        "comments": [ "//", "/*", "*/" ]
+    },
+    "latex": {
+        "official_name": "LaTeX",
+        "extensions": [ ".tex" ],
+        "comments": [ "%" ]
+    },
+    "vhdl": {
+        "official_name": "VHDL",
+        "extensions": [ ".vhd", ".vhdl" ],
+        "comments": [ "--" ]
     }
 }
