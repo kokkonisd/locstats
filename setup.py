@@ -18,4 +18,9 @@ setuptools.setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
+    package_data = {'': ['languages.json']},
+    include_package_data = True,
+    entry_points = {'console_scripts': [
+        'locstats = locstats.__main__:main',
+    ], },
 )
