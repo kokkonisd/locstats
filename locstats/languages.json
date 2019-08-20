@@ -2,36 +2,36 @@
     "python": {
         "official_name": "Python",
         "extensions": [ ".py" ],
-        "comments": [ "#" ]
+        "comments": [ "^#.+$", "\"\"\"((?!\"\"\")[\\s\\S])*\"\"\"" ]
     },
     "c": {
         "official_name": "C",
         "extensions": [ ".c", ".h" ],
-        "comments": [ "//", "/*", "*/" ]
+        "comments": ["^//.+$", "/\\*((?!\\*/)[\\s\\S])*\\*/" ]
     },
     "c++": {
         "official_name": "C++",
         "extensions": [ ".cpp", ".hpp", ".cc", ".hh" ],
-        "comments": [ "//", "/*", "*/" ]
+        "comments": ["^//.+$", "/\\*((?!\\*/)[\\s\\S])*\\*/" ]
     },
     "java": {
         "official_name": "Java",
         "extensions": [ ".java" ],
-        "comments": [ "//", "/*", "*/" ]
+        "comments": ["^//.+$", "/\\*((?!\\*/)[\\s\\S])*\\*/" ]
     },
     "javascript": {
         "official_name": "JavaScript",
         "extensions": [ ".js" ],
-        "comments": [ "//", "/*", "*/" ]
+        "comments": ["^//.+$", "/\\*((?!\\*/)[\\s\\S])*\\*/" ]
     },
     "latex": {
         "official_name": "LaTeX",
         "extensions": [ ".tex" ],
-        "comments": [ "%" ]
+        "comments": [ "^%.+$" ]
     },
     "vhdl": {
         "official_name": "VHDL",
         "extensions": [ ".vhd", ".vhdl" ],
-        "comments": [ "--" ]
+        "comments": [ "^--.+$" ]
     }
 }

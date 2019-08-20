@@ -4,11 +4,15 @@
 import sys
 import json
 import os
+import click
+import re
+
 
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 EXTENSIONS_FILE = os.path.join(ROOT_DIR, "languages.json")
 with open(EXTENSIONS_FILE, "r") as ext:
-        lang_data = json.loads(ext.read())
+        LANG_DATA = json.loads(ext.read())
+
 
 def get_source_files (src_dir, src_extensions):
     source_files = []
@@ -31,29 +35,38 @@ def get_source_files (src_dir, src_extensions):
     return source_files
 
 
-def get_loc (file):
+def get_loc (file, strict, comments):
     with open(file, "r") as source:
         try:
-            lines = source.read().split("\n")
+            lines = source.read()
         except:
             print(f"Could not read file `{file}` (probably because it's not "\
                   "UTF-8). Skipping.")
             return 0
         
+    if strict:
+        for comment in comments:
+            lines = re.sub(comment, "", lines)
+
+        lines = list(filter(lambda x: len(x) > 0, lines.split('\n')))
+    else:
+        lines = lines.split('\n')
 
     return len(lines)
 
 
-def main ():
+
+@click.command()
+@click.argument('language', nargs = 1)
+@click.argument('src_dirs', nargs = -1)
+@click.option('-s', '--strict',
+              is_flag = True,
+              default = False,
+              help = "Run in strict mode (ignore comments and empty lines).")
+def main (strict, language, src_dirs):
     """The main function."""
-    if len(sys.argv) < 3:
-        print("Usage: locstats <language> <source dir 1> <source dir 2> ...")
-        exit(1)
 
-    language = sys.argv[1].lower()
-    source_dirs = sys.argv[2:]
-
-    if language not in lang_data:
+    if language not in LANG_DATA:
         print(f"The language `{language}` doesn't exist or hasn't yet been "\
               "put into our database.\nIf you'd like to contribute, you can "\
               "check out locstats' GitHub page: "\
@@ -64,14 +77,16 @@ def main ():
 
     total_loc_count = 0
 
-    for src in source_dirs:
+    for src in src_dirs:
         source_files = get_source_files(src,
-                                        lang_data[language]["extensions"])
+                                        LANG_DATA[language]["extensions"])
         for file in source_files:
-            total_loc_count += get_loc(file)
+            total_loc_count += get_loc(file,
+                                       strict,
+                                       LANG_DATA[language]["comments"])
 
     print(f"You have written approximately {total_loc_count} LOC in "\
-          f"{lang_data[language]['official_name']}.")
+          f"{LANG_DATA[language]['official_name']}.")
 
 
 
