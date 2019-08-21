@@ -11,7 +11,7 @@ class TestLOC(unittest.TestCase):
         self.maxDiff = None
 
         self.assertEqual(
-            sorted(get_source_files(BASE_DIR, '.py')),
+            sorted(get_source_files(BASE_DIR, '.py', True)),
             sorted([
                 os.path.join(BASE_DIR, 'definitions.py'),
                 os.path.join(BASE_DIR, 'loc.py'),
@@ -23,7 +23,9 @@ class TestLOC(unittest.TestCase):
         )
 
         self.assertEqual(
-            sorted(get_source_files(os.path.join(BASE_DIR, 'tests'), '.py')),
+            sorted(get_source_files(os.path.join(BASE_DIR, 'tests',),
+                                    '.py',
+                                    True)),
             sorted([
                 os.path.join(BASE_DIR, 'tests', 'test_loc.py'),
                 os.path.join(BASE_DIR, 'tests', 'test_definitions.py'),
