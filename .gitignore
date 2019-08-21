@@ -1,4 +1,5 @@
 locstats/__pycache__/*
+locstats/tests/__pycache__/*
 build/*
 dist/*
 locstats.egg-info/*
