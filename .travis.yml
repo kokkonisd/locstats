@@ -1,8 +1,15 @@
 language: python
 python:
-  - "3.6"
+- '3.6'
 install:
-  - pip install -r requirements.txt
+- pip install -r requirements.txt
 script:
-  - python3 -m unittest discover -s locstats/tests
-  # - python3 setup.py sdist bdist_wheel
+- python3 -m unittest discover -s locstats/tests
+
+deploy:
+  provider: pypi
+  user: "kokkonisd"
+  password:
+    secure: hDfgFtwcXdkzsBNfrpdmgSyiQl3sFS7kwcoBN9rt7EX4H2oAuKv06AyODowo+lpvW8QCz0go8JfloHCz1bYGoto0nqS+tFTQe9rG+3t9T2HXx14IzvR/03H0U23uG5X2UWlK5mtma0958Upt4eV1i8wgRGeB/SVgSy3mMIOKbgNkjDiI3Vmu0Ey4xVDjLOtaskskzIBsBeOp7V4kdFkmXXlzWLWW81KmYor8Z+gdE29LZuSXi+QDofydGRqXJnH6JVr5wf21wePRpciBVEhk4PNBOkOTNAq31nIU8e/cEB99Mgs9xrJEXcvjTHp/YGRMTEwM8v7SIR7n0M9MXSGq6sw+fT7YVOAqkcEQfQtbyE3psMzXSkY4KucjDd9+aalkDw1w44+Zmc0PgCyMgbF9bIR06NcDtfw4Upht4UrVdyBU5/OVsaiZj3DWcEE6fvQyarcxxBXtsSVkwe/VJnfL82u/0utUztpLCIsvrYgBBovkEhxUnXYQ9sLEbhPr8sSz5TeeNwZiZWZIXylkdxPn89GEuf0tKrTjt/blwg1B0JdmupQ7TZsx+GYz7Uy6veyq/Hb5gQyzPeFFVDpmvUl6A24YGBNkTaRpbQ2VKcQcTx253zHUacXO3nIWC1MyZMzJ8Yg2PCd1gw+9LR2WseZdZlrkMoLfv5VEZaC7jJaZQgY=
+  on:
+    tags: true
