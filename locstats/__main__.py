@@ -40,8 +40,7 @@ def main(language, src_dirs, strict, minimal):
         exit(1)
 
 
-    # Initialize the counter to 0
-    total_loc_count = 0
+    loc_count_per_file = []
 
     for src in src_dirs:
         # Get all the source files from the given directories
@@ -49,9 +48,12 @@ def main(language, src_dirs, strict, minimal):
                                         LANG_DATA[language]["extensions"])
         for file in source_files:
             # Count the LOC in each file
-            total_loc_count += get_loc(file,
-                                       strict,
-                                       LANG_DATA[language]["comments"])
+            loc_count_per_file.append((
+              file,
+              get_loc(file, strict, LANG_DATA[language]["comments"])
+            ))
+
+    total_loc_count = sum(x[1] for x in loc_count_per_file)
 
     # Give the LOC count to the user
     if minimal:

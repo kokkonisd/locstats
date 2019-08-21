@@ -1,18 +1,20 @@
 import os
 import re
 
+from .definitions import esc_regex, fail
 
-def get_source_files (src_dir, src_extensions):
+
+def get_source_files(src_dir, src_extensions):
     """Returns a list of source files given a root directory and a file
     extension."""
     source_files = []
 
     if not os.path.exists(src_dir):
-            print(f"Source directory `{src_dir}` doesn't exist. Skipping.")
+            fail(f"Source directory `{src_dir}` doesn't exist. Skipping.")
             return source_files
 
     if os.path.isfile(src_dir):
-            print(f"`{src_dir}` is a file, not a directory. Skipping.")
+            fail(f"`{src_dir}` is a file, not a directory. Skipping.")
             return source_files
 
 
@@ -25,20 +27,27 @@ def get_source_files (src_dir, src_extensions):
     return source_files
 
 
-def get_loc (file, strict, comments):
+def get_loc(file, strict, comments):
     """Returns the LOC count given a file. Optionally strips out comments and
     blank lines"""
     with open(file, "r") as source:
         try:
             lines = source.read()
         except:
-            print(f"Could not read file `{file}` (probably because it's not "\
+            fail(f"Could not read file `{file}` (probably because it's not "\
                   "UTF-8). Skipping.")
             return 0
         
     if strict:
-        for comment in comments:
-            lines = re.sub(comment, "", lines)
+        for comment in comments["single_line"]:
+            lines = re.sub(f"^{comment}.+$", "", lines)
+
+        for start, stop in comments["multi_line"]:
+            lines = re.sub(f"{esc_regex(start)}"\
+                               f"((?!{esc_regex(stop)})[\\s\\S])*"\
+                               f"{esc_regex(stop)}",
+                           "",
+                           lines)
 
         lines = list(filter(lambda x: len(x) > 0, lines.split('\n')))
     else:

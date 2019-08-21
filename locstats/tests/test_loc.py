@@ -33,5 +33,3 @@ class TestLOC(unittest.TestCase):
 
     def test_get_loc(self):
         self.maxDiff = None
-
-        

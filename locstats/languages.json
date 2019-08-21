@@ -2,36 +2,71 @@
     "python": {
         "official_name": "Python",
         "extensions": [ ".py" ],
-        "comments": [ "^#.+$", "\"\"\"((?!\"\"\")[\\s\\S])*\"\"\"" ]
+        "comments": {
+            "single_line": [ "#" ],
+            "multi_line": [
+                [ "\"\"\"", "\"\"\"" ]
+            ]
+        }
     },
     "c": {
         "official_name": "C",
         "extensions": [ ".c", ".h" ],
-        "comments": ["^//.+$", "/\\*((?!\\*/)[\\s\\S])*\\*/" ]
+        "comments": {
+            "single_line": [ "//" ],
+            "multi_line": [
+                [ "/*", "*/" ]
+            ]
+        }
     },
     "c++": {
         "official_name": "C++",
         "extensions": [ ".cpp", ".hpp", ".cc", ".hh" ],
-        "comments": ["^//.+$", "/\\*((?!\\*/)[\\s\\S])*\\*/" ]
+        "comments": {
+            "single_line": [ "//" ],
+            "multi_line": [
+                [ "/*", "*/" ]
+            ]
+        }
     },
     "java": {
         "official_name": "Java",
         "extensions": [ ".java" ],
-        "comments": ["^//.+$", "/\\*((?!\\*/)[\\s\\S])*\\*/" ]
+        "comments": {
+            "single_line": [ "//" ],
+            "multi_line": [
+                [ "/*", "*/" ]
+            ]
+        }
     },
     "javascript": {
         "official_name": "JavaScript",
         "extensions": [ ".js" ],
-        "comments": ["^//.+$", "/\\*((?!\\*/)[\\s\\S])*\\*/" ]
+        "comments": {
+            "single_line": [ "//" ],
+            "multi_line": [
+                [ "/*", "*/" ]
+            ]
+        }
     },
     "latex": {
         "official_name": "LaTeX",
         "extensions": [ ".tex" ],
-        "comments": [ "^%.+$" ]
+        "comments": {
+            "single_line": [ "%" ],
+            "multi_line": [
+                [ "\\iffalse", "\\fi" ],
+                [ "\\comment", "\\endcomment" ],
+                [ "\\begin{comment}", "\\end{comment}" ]
+            ]
+        }
     },
     "vhdl": {
         "official_name": "VHDL",
         "extensions": [ ".vhd", ".vhdl" ],
-        "comments": [ "^--.+$" ]
+        "comments": {
+            "single_line": [ "--" ],
+            "multi_line": []
+        }
     }
 }
