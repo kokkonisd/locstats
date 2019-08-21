@@ -1,21 +1,31 @@
+## 
+## @package locstats
+## @author Dimitri Kokkonis ([\@kokkonisd](https://github.com/kokkonisd))
+## 
+## This file contains useful functions to get the number of LOC from a given
+## directory set.
+##
+
 import os
 import re
 
-from .definitions import esc_regex, fail
+from .definitions import esc_regex, warn
 
 
-def get_source_files(src_dir, src_extensions):
+def get_source_files(src_dir, src_extensions, silent):
     """Returns a list of source files given a root directory and a file
     extension."""
     source_files = []
 
     if not os.path.exists(src_dir):
-            fail(f"Source directory `{src_dir}` doesn't exist. Skipping.")
-            return source_files
+        if not silent:
+            warn(f"Source directory `{src_dir}` doesn't exist. Skipping.")
+        return source_files
 
     if os.path.isfile(src_dir):
-            fail(f"`{src_dir}` is a file, not a directory. Skipping.")
-            return source_files
+        if not silent:
+            warn(f"`{src_dir}` is a file, not a directory. Skipping.")
+        return source_files
 
 
     for (dirpath, dirnames, filenames) in os.walk(src_dir):
@@ -27,15 +37,16 @@ def get_source_files(src_dir, src_extensions):
     return source_files
 
 
-def get_loc(file, strict, comments):
+def get_loc(file, strict, comments, silent):
     """Returns the LOC count given a file. Optionally strips out comments and
     blank lines"""
     with open(file, "r") as source:
         try:
             lines = source.read()
         except:
-            fail(f"Could not read file `{file}` (probably because it's not "\
-                  "UTF-8). Skipping.")
+            if not silent:
+                warn(f"Could not read file `{file}` (probably because it's "\
+                     "not UTF-8). Skipping.")
             return 0
         
     if strict:

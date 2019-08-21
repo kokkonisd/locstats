@@ -16,7 +16,7 @@ from .loc import get_source_files, get_loc
 @click.command()
 @click.argument('language', nargs = 1)
 @click.argument('src_dirs', nargs = -1)
-@click.option('-s', '--strict',
+@click.option('--strict',
               is_flag = True,
               default = False,
               help = "Run in strict mode (ignore comments and empty lines).")
@@ -24,7 +24,12 @@ from .loc import get_source_files, get_loc
               is_flag = True,
               default = False,
               help = "Give minimal output (just the LOC count).")
-def main(language, src_dirs, strict, minimal):
+@click.option('--silent',
+              is_flag = True,
+              default = False,
+              help = "Silence all warnings (such as directories not being "\
+                     "found).")
+def main(language, src_dirs, strict, minimal, silent):
     """Counts the LOC in a given language in a given directory set."""
 
     # Check if language exists in database
@@ -44,13 +49,20 @@ def main(language, src_dirs, strict, minimal):
 
     for src in src_dirs:
         # Get all the source files from the given directories
-        source_files = get_source_files(src,
-                                        LANG_DATA[language]["extensions"])
+        source_files = get_source_files(
+          src_dir = src,
+          src_extensions = LANG_DATA[language]["extensions"],
+          silent = silent
+        )
+
         for file in source_files:
             # Count the LOC in each file
             loc_count_per_file.append((
               file,
-              get_loc(file, strict, LANG_DATA[language]["comments"])
+              get_loc(file = file,
+                      strict = strict,
+                      comments = LANG_DATA[language]["comments"],
+                      silent = silent)
             ))
 
     total_loc_count = sum(x[1] for x in loc_count_per_file)
