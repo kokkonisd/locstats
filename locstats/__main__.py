@@ -24,7 +24,7 @@ from .loc import get_source_files, get_loc
               is_flag = True,
               default = False,
               help = "Give minimal output (just the LOC count).")
-def main (language, src_dirs, strict, minimal):
+def main(language, src_dirs, strict, minimal):
     """Counts the LOC in a given language in a given directory set."""
 
     # Check if language exists in database

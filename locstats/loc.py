@@ -3,6 +3,8 @@ import re
 
 
 def get_source_files (src_dir, src_extensions):
+    """Returns a list of source files given a root directory and a file
+    extension."""
     source_files = []
 
     if not os.path.exists(src_dir):
@@ -24,6 +26,8 @@ def get_source_files (src_dir, src_extensions):
 
 
 def get_loc (file, strict, comments):
+    """Returns the LOC count given a file. Optionally strips out comments and
+    blank lines"""
     with open(file, "r") as source:
         try:
             lines = source.read()
