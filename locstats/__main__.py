@@ -3,7 +3,7 @@
 ## @author Dimitri Kokkonis ([\@kokkonisd](https://github.com/kokkonisd))
 ## 
 ## This is the entry point for the `locstats` tool.
-##
+## 
 
 import sys
 import os
