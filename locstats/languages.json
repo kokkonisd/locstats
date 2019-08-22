@@ -21,7 +21,7 @@
     },
     "css": {
         "official_name": "CSS",
-        "extensions": [ ".css"],
+        "extensions": [ ".css" ],
         "comments": {
             "single_line": [ ],
             "multi_line": [
@@ -51,7 +51,7 @@
     },
     "d": {
         "official_name": "D",
-        "extensions": [ ".d"],
+        "extensions": [ ".d" ],
         "comments": {
             "single_line": [ "//" ],
             "multi_line": [
@@ -61,7 +61,7 @@
     },   
     "dart": {
         "official_name": "Dart",
-        "extensions": [ ".dart"],
+        "extensions": [ ".dart" ],
         "comments": {
             "single_line": [ "//" ],
             "multi_line": [
@@ -71,7 +71,7 @@
     },  
     "fortran": {
         "official_name": "Fortran",
-        "extensions": [ ".f", ".f4", ".f90"],
+        "extensions": [ ".f", ".f4", ".f90" ],
         "comments": {
             "single_line": [ "!" ],
             "multi_line": []
@@ -89,7 +89,7 @@
     },     
     "go": {
         "official_name": "Go",
-        "extensions": [ ".go"],
+        "extensions": [ ".go" ],
         "comments": {
             "single_line": [ "//" ],
             "multi_line": [
@@ -159,17 +159,17 @@
     },    
     "objective-c": {
         "official_name": "Objective-C",
-        "extensions": [ ".h", ".m", ".mm", ".M"],
+        "extensions": [ ".h", ".m", ".mm", ".M" ],
         "comments": {
             "single_line": [ "//" ],
             "multi_line": [
-                ["/*", "*/"]
+                [ "/*", "*/" ]
             ]
         }
     }, 
     "perl": {
         "official_name": "Perl",
-        "extensions": [ ".pl", ".pm", ".xs", ".t", ".pod"],
+        "extensions": [ ".pl", ".pm", ".xs", ".t", ".pod" ],
         "comments": {
             "single_line": [ "#" ],
             "multi_line": []
@@ -177,17 +177,17 @@
     },      
     "php": {
         "official_name": "PHP",
-        "extensions": [ ".php", ".phtml"],
+        "extensions": [ ".php", ".phtml" ],
         "comments": {
             "single_line": [ "//" ],
             "multi_line": [
-                ["/*", "*/"]
+                [ "/*", "*/" ]
             ]
         }
     },  
     "r": {
         "official_name": "R",
-        "extensions": [ ".r", ".R", ".RData", ".rds", ".rda"],
+        "extensions": [ ".r", ".R", ".RData", ".rds", ".rda" ],
         "comments": {
             "single_line": [ "#" ],
             "multi_line": []
@@ -195,31 +195,41 @@
     },      
     "ruby": {
         "official_name": "Ruby",
-        "extensions": [ ".rb"],
+        "extensions": [ ".rb" ],
         "comments": {
             "single_line": [ "#" ],
             "multi_line": [
-                ["=begin", "=end"]
+                [ "=begin", "=end" ]
             ]
         }
-    },  
-    "swift": {
-        "official_name": "Swift",
-        "extensions": [ ".swift"],
+    },
+    "rust": {
+        "official_name": "Rust",
+        "extensions": [ ".rs", ".rlib" ],
         "comments": {
             "single_line": [ "//" ],
             "multi_line": [
-                ["/*", "*/"]
+                [ "/*", "*/" ]
+            ]
+        }
+    }  
+    "swift": {
+        "official_name": "Swift",
+        "extensions": [ ".swift" ],
+        "comments": {
+            "single_line": [ "//" ],
+            "multi_line": [
+                [ "/*", "*/" ]
             ]
         }
     },     
     "typescript": {
         "official_name": "TypeScript",
-        "extensions": [ ".ts", ".tsx"],
+        "extensions": [ ".ts", ".tsx" ],
         "comments": {
             "single_line": [ "//" ],
             "multi_line": [
-                ["/*", "*/"]
+                [ "/*", "*/" ]
             ]
         }
     },    
@@ -229,7 +239,7 @@
         "comments": {
             "single_line": [ "//" ],
             "multi_line": [
-                ["/*", "*/"]
+                [ "/*", "*/" ]
             ]
         }
     },    
