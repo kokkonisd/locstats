@@ -61,6 +61,22 @@ $ locstats c ~/code/C/ --minimal
 39590
 ```
 
+You can also get a detailed view of the LOC count per file using the `-d` or
+`--detailed` flag:
+
+```bash
+$ locstats python ~/code/locstats/
+__main__.py         : 105 (32.71%)
+loc.py              : 73 (22.74%)
+test_loc.py         : 54 (16.82%)
+definitions.py      : 47 (14.64%)
+setup.py            : 28 (8.72%)
+test_definitions.py : 12 (3.74%)
+__init__.py         : 2 (0.62%)
+----
+TOTAL LOC           : 321 (100%)
+```
+
 # contributing
 
 Do you want to contribute to an open source project? `locstats` needs your
