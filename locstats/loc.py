@@ -48,10 +48,15 @@ def get_loc(file, strict, comments, silent):
                 warn(f"Could not read file `{file}` (probably because it's "\
                      "not UTF-8). Skipping.")
             return 0
-        
+    
     if strict:
         for comment in comments["single_line"]:
-            lines = re.sub(f"^{comment}.+$", "", lines)
+            # Simulate ^ and $ characters, as for some reason the re.MULTILINE
+            # flag doesn't work (and thus ^ and $ only match at the beginning
+            # and at the end of the string, not at every line)
+            lines = re.sub(f"([\n]?)[ \t]*{esc_regex(comment)}.+[ \t]*([\n]?)",
+                           "\\1\\2",
+                           lines)
 
         for start, stop in comments["multi_line"]:
             lines = re.sub(f"{esc_regex(start)}"\

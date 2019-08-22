@@ -1,7 +1,7 @@
 import os
 import unittest
 
-from locstats.definitions import BASE_DIR
+from locstats.definitions import BASE_DIR, LANG_DATA
 from locstats.loc import get_source_files, get_loc
 
 
@@ -35,3 +35,19 @@ class TestLOC(unittest.TestCase):
 
     def test_get_loc(self):
         self.maxDiff = None
+
+        self.assertEqual(
+            get_loc(os.path.join(BASE_DIR, "tests", "dummy_data", "test.c"),
+                    False,
+                    LANG_DATA['c']['comments'],
+                    False),
+            18
+        )
+
+        self.assertEqual(
+            get_loc(os.path.join(BASE_DIR, "tests", "dummy_data", "test.c"),
+                    True,
+                    LANG_DATA['c']['comments'],
+                    False),
+            6
+        )

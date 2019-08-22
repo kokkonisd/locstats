@@ -198,7 +198,9 @@
         "extensions": [ ".rb"],
         "comments": {
             "single_line": [ "#" ],
-            "multi_line": [["=begin", "=end"]]
+            "multi_line": [
+                ["=begin", "=end"]
+            ]
         }
     },  
     "swift": {
@@ -206,7 +208,9 @@
         "extensions": [ ".swift"],
         "comments": {
             "single_line": [ "//" ],
-            "multi_line": [["/*", "*/"]]
+            "multi_line": [
+                ["/*", "*/"]
+            ]
         }
     },     
     "typescript": {
@@ -214,7 +218,9 @@
         "extensions": [ ".ts", ".tsx"],
         "comments": {
             "single_line": [ "//" ],
-            "multi_line": [["/*", "*/"]]
+            "multi_line": [
+                ["/*", "*/"]
+            ]
         }
     },    
     "verilog": {
@@ -222,7 +228,9 @@
         "extensions": [ ".v", ".vh" ],
         "comments": {
             "single_line": [ "//" ],
-            "multi_line": [["/*", "*/"]]
+            "multi_line": [
+                ["/*", "*/"]
+            ]
         }
     },    
     "vhdl": {
