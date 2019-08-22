@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name = "locstats",
-    version = "1.0.0",
+    version = "1.0.1",
     author = "Dimitri Kokkonis",
     author_email = "kokkonisd@gmail.com",
     description = "A statistics tool for your LOC per language",
