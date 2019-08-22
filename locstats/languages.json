@@ -212,7 +212,7 @@
                 [ "/*", "*/" ]
             ]
         }
-    }  
+    },
     "swift": {
         "official_name": "Swift",
         "extensions": [ ".swift" ],
