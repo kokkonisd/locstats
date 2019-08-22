@@ -19,7 +19,7 @@ setuptools.setup(
         "Operating System :: OS Independent",
     ],
     install_requires = [ "click" ],
-    package_data = {'': ['languages.json']},
+    package_data = {'locstats': ['languages.json']},
     include_package_data = True,
     entry_points = {'console_scripts': [
         'locstats = locstats.__main__:main',
