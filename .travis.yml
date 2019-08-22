@@ -1,11 +1,13 @@
 language: python
 python:
   - '3.6'
+before_install:
+  - echo -e "machine github.com\n  login $GITHUB_TOKEN" > ~/.netrc
+  - git lfs pull
 install:
   - pip install -r requirements.txt
 script:
   - python3 -m unittest discover -s locstats/tests
-
 deploy:
   provider: pypi
   user: "kokkonisd"
