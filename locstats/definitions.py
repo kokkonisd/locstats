@@ -9,6 +9,8 @@
 import os
 import json
 
+VERSION = "1.0.1"
+
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 LANG_FILE = os.path.join(BASE_DIR, "languages.json")
 with open(LANG_FILE, "r") as ext:

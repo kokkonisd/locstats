@@ -9,13 +9,13 @@ import sys
 import os
 import click
 
-from .definitions import LANG_DATA, info, fail
+from .definitions import VERSION, LANG_DATA, info, fail
 from .loc import get_source_files, get_loc
 
 
 @click.command()
-@click.argument('language', nargs = 1)
-@click.argument('src_dirs', nargs = -1)
+@click.argument('language', nargs = 1) # Exactly one argument
+@click.argument('src_dirs', nargs = -1) # Unlimited arguments
 @click.option('--strict',
               is_flag = True,
               default = False,
@@ -33,6 +33,8 @@ from .loc import get_source_files, get_loc
               is_flag = True,
               default = False,
               help = "Output a detaled list of LOC per file.")
+@click.version_option(version = VERSION,
+                      prog_name = "locstats")
 def main(language, src_dirs, strict, minimal, silent, detailed):
     """Counts the LOC in a given language in a given directory set."""
 
