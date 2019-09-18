@@ -250,5 +250,13 @@
             "single_line": [ "--" ],
             "multi_line": []
         }
+    },
+    "markdown": {
+        "official_name": "Markdown",
+        "extensions": [ ".md", ".markdown" ],
+        "comments" : {
+            "single_line": [ "[//]: # " ],
+            "multi_line": []
+        }
     }
 }

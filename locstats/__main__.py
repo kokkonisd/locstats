@@ -39,7 +39,7 @@ def main(language, src_dirs, strict, minimal, silent, detailed):
     # Check if language exists in database
     if language not in LANG_DATA:
         info(f"The language `{language}` doesn't exist or hasn't yet been "\
-              "registered into our database.")
+              "registered in our database.")
 
         info("\nHere's a list of all the languages we currently support:")
         print(f"{', '.join(sorted(list(LANG_DATA.keys())))}\n")
@@ -73,12 +73,13 @@ def main(language, src_dirs, strict, minimal, silent, detailed):
 
     # Give the LOC count to the user
     if minimal:
+        # Just print the number
         print(total_loc_count)
     elif detailed:
-        # Strip off everything but the actual name of each file
-        loc_count_per_file = list(map(lambda x: (x[0].split('/')[-1], x[1]),
-                                      loc_count_per_file))
-        # Sort them by descending LOC count
+        # Print the filenames along with their LOC count and the percentage of
+        # the total LOC count they represent
+        
+        # Sort the files by descending LOC count
         loc_count_per_file = sorted(loc_count_per_file,
                                     key = lambda x: x[1],
                                     reverse = True)
