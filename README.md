@@ -14,6 +14,8 @@ language.
 
 # installing locstats
 
+**Note: `locstats` is only compatible with Python 3.7 or newer.**
+
 You can install `locstats` via `pip`:
 
 ```bash
