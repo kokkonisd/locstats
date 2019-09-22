@@ -28,6 +28,39 @@ $ cd locstats/
 $ pip3 install .
 ```
 
+Then you can run it to make sure that it's installed properly:
+
+```bash
+$ locstats --help
+Usage: locstats [OPTIONS] LANGUAGE [SRC_DIRS]...
+
+  Counts the LOC in a given language in a given directory set.
+
+Options:
+  --strict        Run in strict mode (ignore comments and empty lines).
+  -m, --minimal   Give minimal output (just the LOC count).
+  --silent        Silence all warnings (such as directories not being found).
+  -d, --detailed  Output a detaled list of LOC per file.
+  --help          Show this message and exit.
+```
+
+If you have installed `locstats` with `pip` but it can't find the executable
+when you run it, then you need to add Python to your `PATH` variable. You can
+do that by adding the following line to your `~/.bashrc` or `~/.zshrc`:
+
+```bash
+export PATH=your-python-path-here/bin:$PATH
+```
+
+For example, on my computer (OSX) it's:
+
+```bash
+export PATH=/Users/kokkonisd/Library/Python/3.7/bin:$PATH
+```
+
+If you still can't get `locstats` to run, please create new
+[issue](https://github.com/kokkonisd/locstats/issues) and we'll get to it ASAP.
+
 # using locstats
 
 Using locstats is pretty simple! Let's say I want to find out my LOC count in C
