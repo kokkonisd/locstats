@@ -1,11 +1,13 @@
 import setuptools
 
+from locstats.definitions import VERSION
+
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
     name = "locstats",
-    version = "1.0.1",
+    version = VERSION,
     author = "Dimitri Kokkonis",
     author_email = "kokkonisd@gmail.com",
     description = "A statistics tool for your LOC per language",
