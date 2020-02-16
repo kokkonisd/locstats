@@ -56,19 +56,19 @@ def main(language, src_dirs, strict, minimal, silent, detailed):
     for src in src_dirs:
         # Get all the source files from the given directories
         source_files = get_source_files(
-          src_dir = src,
-          src_extensions = LANG_DATA[language]["extensions"],
-          silent = silent
+            src_dir = src,
+            src_extensions = LANG_DATA[language]["extensions"],
+            silent = silent
         )
 
         for file in source_files:
             # Count the LOC in each file
             loc_count_per_file.append((
-              file,
-              get_loc(file = file,
-                      strict = strict,
-                      comments = LANG_DATA[language]["comments"],
-                      silent = silent)
+                file,
+                get_loc(file = file,
+                        strict = strict,
+                        comments = LANG_DATA[language]["comments"],
+                        silent = silent)
             ))
 
     total_loc_count = sum(x[1] for x in loc_count_per_file)

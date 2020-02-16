@@ -28,7 +28,7 @@
                 [ "/*", "*/" ]
             ]
         }
-    },   
+    },
     "c#": {
         "official_name": "C#",
         "extensions": [ ".cs" ],
@@ -38,7 +38,7 @@
                 [ "/*", "*/" ]
             ]
         }
-    },    
+    },
     "c++": {
         "official_name": "C++",
         "extensions": [ ".cpp", ".hpp", ".cc", ".hh" ],
@@ -58,7 +58,7 @@
                 [ "/*", "*/" ]
             ]
         }
-    },   
+    },
     "dart": {
         "official_name": "Dart",
         "extensions": [ ".dart" ],
@@ -68,25 +68,25 @@
                 [ "/*", "*/" ]
             ]
         }
-    },  
+    },
     "fortran": {
         "official_name": "Fortran",
         "extensions": [ ".f", ".f4", ".f90" ],
         "comments": {
             "single_line": [ "!" ],
-            "multi_line": []
+            "multi_line": [ ]
         }
-    },  
+    },
     "f#": {
         "official_name": "F#",
-        "extensions": [ ".fs", ".fsi", ".fsx", ".fsscript"  ],
+        "extensions": [ ".fs", ".fsi", ".fsx", ".fsscript" ],
         "comments": {
             "single_line": [ "//" ],
             "multi_line": [
                 [ "(*", "*)" ]
             ]
         }
-    },     
+    },
     "go": {
         "official_name": "Go",
         "extensions": [ ".go" ],
@@ -96,7 +96,7 @@
                 [ "/*", "*/" ]
             ]
         }
-    },    
+    },
     "html": {
         "official_name": "HTML",
         "extensions": [ ".html", ".htm" ],
@@ -106,7 +106,7 @@
                 [ "<!--", "-->" ]
             ]
         }
-    },    
+    },
     "java": {
         "official_name": "Java",
         "extensions": [ ".java" ],
@@ -134,7 +134,7 @@
             "single_line": [ "#" ],
             "multi_line": []
         }
-    },    
+    },
     "latex": {
         "official_name": "LaTeX",
         "extensions": [ ".tex" ],
@@ -156,7 +156,7 @@
                 [ "%{", "}%" ]
             ]
         }
-    },    
+    },
     "objective-c": {
         "official_name": "Objective-C",
         "extensions": [ ".h", ".m", ".mm", ".M" ],
@@ -166,15 +166,15 @@
                 [ "/*", "*/" ]
             ]
         }
-    }, 
+    },
     "perl": {
         "official_name": "Perl",
         "extensions": [ ".pl", ".pm", ".xs", ".t", ".pod" ],
         "comments": {
             "single_line": [ "#" ],
-            "multi_line": []
+            "multi_line": [ ]
         }
-    },      
+    },
     "php": {
         "official_name": "PHP",
         "extensions": [ ".php", ".phtml" ],
@@ -184,15 +184,15 @@
                 [ "/*", "*/" ]
             ]
         }
-    },  
+    },
     "r": {
         "official_name": "R",
         "extensions": [ ".r", ".R", ".RData", ".rds", ".rda" ],
         "comments": {
             "single_line": [ "#" ],
-            "multi_line": []
+            "multi_line": [ ]
         }
-    },      
+    },
     "ruby": {
         "official_name": "Ruby",
         "extensions": [ ".rb" ],
@@ -222,7 +222,7 @@
                 [ "/*", "*/" ]
             ]
         }
-    },     
+    },
     "typescript": {
         "official_name": "TypeScript",
         "extensions": [ ".ts", ".tsx" ],
@@ -232,7 +232,7 @@
                 [ "/*", "*/" ]
             ]
         }
-    },    
+    },
     "verilog": {
         "official_name": "Verilog",
         "extensions": [ ".v", ".vh" ],
@@ -242,13 +242,13 @@
                 [ "/*", "*/" ]
             ]
         }
-    },    
+    },
     "vhdl": {
         "official_name": "VHDL",
         "extensions": [ ".vhd", ".vhdl" ],
         "comments": {
             "single_line": [ "--" ],
-            "multi_line": []
+            "multi_line": [ ]
         }
     },
     "markdown": {
@@ -256,7 +256,7 @@
         "extensions": [ ".md", ".markdown" ],
         "comments" : {
             "single_line": [ "[//]: # " ],
-            "multi_line": []
+            "multi_line": [ ]
         }
     }
 }
