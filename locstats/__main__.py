@@ -38,6 +38,8 @@ from .loc import get_source_files, get_loc
 def main(language, src_dirs, strict, minimal, silent, detailed):
     """Counts the LOC in a given language in a given directory set."""
 
+    # Convert user-fed language to lowercase (see `languages.json`)
+    language = language.lower()
     # Check if language exists in database
     if language not in LANG_DATA:
         info(f"The language `{language}` doesn't exist or hasn't yet been "\
