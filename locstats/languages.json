@@ -5,7 +5,8 @@
         "comments": {
             "single_line": [ "#" ],
             "multi_line": [
-                [ "\"\"\"", "\"\"\"" ]
+                [ "\"\"\"", "\"\"\"" ],
+                [ "'''", "'''"]
             ]
         }
     },
@@ -132,7 +133,7 @@
         "extensions": [ ".jl" ],
         "comments": {
             "single_line": [ "#" ],
-            "multi_line": []
+            "multi_line": [ ]
         }
     },
     "latex": {
