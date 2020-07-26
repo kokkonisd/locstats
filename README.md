@@ -70,7 +70,7 @@ given all the C projects I have inside my `~/code/C/` folder:
 
 ```bash
 $ locstats c ~/code/C/
-You have written approximately 39590 LOC in C.
+You have written approximately 39590 LOC in C, 27.26% of which are comments.
 ```
 
 But wait! I try to document the code I write, so there's gonna be a lot of
@@ -101,6 +101,8 @@ You can also get a detailed view of the LOC count per file using the `-d` or
 
 ```bash
 $ locstats python ~/code/locstats/
+FILENAME              LOC (%)
+----------------------------------------
 __main__.py         : 105 (32.71%)
 loc.py              : 73 (22.74%)
 test_loc.py         : 54 (16.82%)
@@ -108,7 +110,7 @@ definitions.py      : 47 (14.64%)
 setup.py            : 28 (8.72%)
 test_definitions.py : 12 (3.74%)
 __init__.py         : 2 (0.62%)
-----
+----------------------------------------
 TOTAL LOC           : 321 (100%)
 ```
 

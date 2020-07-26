@@ -9,7 +9,7 @@
 import os
 import json
 
-VERSION = "1.0.5"
+VERSION = "1.0.6"
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 LANG_FILE = os.path.join(BASE_DIR, "languages.json")
