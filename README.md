@@ -32,7 +32,7 @@ $ pip3 install .
 
 Then you can run it to make sure that it's installed properly:
 
-```bash
+```text
 $ locstats --help
 Usage: locstats [OPTIONS] LANGUAGE [SRC_DIRS]...
 
@@ -68,7 +68,7 @@ If you still can't get `locstats` to run, please create new
 Using locstats is pretty simple! Let's say I want to find out my LOC count in C
 given all the C projects I have inside my `~/code/C/` folder:
 
-```bash
+```text
 $ locstats c ~/code/C/
 You have written approximately 39590 LOC in C, 27.26% of which are comments.
 ```
@@ -80,7 +80,7 @@ make it more readable; those do not contribute to the code line count either.
 
 Thankfully, I can just run `locstats` in strict mode:
 
-```bash
+```text
 $ locstats c ~/code/C/ --strict
 You have written approximately 28807 LOC in C.
 ```
@@ -91,7 +91,7 @@ But what if I want to use the output of `locstats` in some other script? Well,
 I can tell it to give me minimal output, which will only print the LOC count
 (without the extra text):
 
-```bash
+```text
 $ locstats c ~/code/C/ --minimal
 39590
 ```
@@ -99,8 +99,8 @@ $ locstats c ~/code/C/ --minimal
 You can also get a detailed view of the LOC count per file using the `-d` or
 `--detailed` flag:
 
-```bash
-$ locstats python ~/code/locstats/
+```text
+$ locstats python ~/code/locstats/ --detailed
 FILENAME              LOC (%)
 ----------------------------------------
 __main__.py         : 105 (32.71%)
