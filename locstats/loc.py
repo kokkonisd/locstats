@@ -45,40 +45,36 @@ def get_loc(filename, strict, comments, silent):
         except:
             if not silent:
                 warn(f"Could not read file `{filename}` (probably because it's not UTF-8). Skipping.")
-            return 0
+            return (0, 0)
    
     comm_lines = []
 
     for comment in comments["single_line"]:
         # Simulate ^ and $ characters, as for some reason the re.MULTILINE flag doesn't work (and thus ^ and $ only
         # match at the beginning and at the end of the string, not at every line)
-        comm_single_regex = f"^[ \t]*{esc_regex(comment)}.+[ \t]*"
-        line_single_regex = f"([\n]?)[ \t]*{esc_regex(comment)}.+[ \t]*([\n]?)"
-                                 
+        comm_single_regex = f"\n([ \t]*{esc_regex(comment)}.+[ \t]*)"                 
 
         # If in strict mode, remove all single line comments
         if strict:
-            lines = re.sub(line_single_regex, "\\1\\2", lines)
+            lines = re.sub(comm_single_regex, "", lines)
         else:
             # Collect all single line comments
-            comm_lines += re.findall(comm_single_regex, lines, flags=re.MULTILINE)
+            comm_lines += re.findall(comm_single_regex, lines)
 
 
     for start, stop in comments["multi_line"]:
-        comm_multi_regex = f"{esc_regex(start)}"\
-                           f"(?!{esc_regex(stop)})[\\s\\S]*"\
-                           f"{esc_regex(stop)}" 
-        line_multi_regex = f"{esc_regex(start)}"\
+        comm_multi_regex = f"\n([ \t]*{esc_regex(start)}"\
                            f"((?!{esc_regex(stop)})[\\s\\S])*"\
-                           f"{esc_regex(stop)}" 
+                           f"{esc_regex(stop)}[ \t]*)" 
 
 
         # If in strict mode, remove all multi line comments
         if strict:
-            lines = re.sub(line_multi_regex, "", lines)
+            lines = re.sub(comm_multi_regex, "", lines)
         else:
             # Collect all multi line comments
-            multi_comm_lines = list(map(lambda x: x.split('\n'), re.findall(comm_multi_regex, lines))) 
+            raw_matches = list(map(lambda x: x[0], re.findall(comm_multi_regex, lines)))
+            multi_comm_lines = list(map(lambda x: x.split('\n'), raw_matches)) 
             comm_lines += [item for sublist in multi_comm_lines for item in sublist]
 
 
@@ -86,6 +82,5 @@ def get_loc(filename, strict, comments, silent):
         lines = list(filter(lambda x: len(x) > 0, lines.split('\n')))
     else:
         lines = lines.split('\n')
-
 
     return len(lines), len(comm_lines)

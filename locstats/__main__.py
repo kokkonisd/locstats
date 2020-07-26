@@ -73,6 +73,10 @@ def main(language, src_dirs, strict, minimal, silent, detailed):
                         silent = silent)
             ))
 
+
+    # Remove files that don't count towards LOC
+    loc_count_per_file = list(filter(lambda x: x[1][0] > 0, loc_count_per_file))
+
     total_loc_count = sum(x[1][0] for x in loc_count_per_file)
     comm_line_count = sum(x[1][1] for x in loc_count_per_file)
 

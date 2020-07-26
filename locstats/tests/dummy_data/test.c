@@ -12,6 +12,6 @@ int main (int argc, char * argv[])
     printf("This is some dummy code\n");
 
     // Another
-    // comment
+    // comment // this shouldn't count as an extra comment /* neither should this */
     return 0; // Inline comment (shouldn't be removed)
 }
