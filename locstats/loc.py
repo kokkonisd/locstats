@@ -52,18 +52,18 @@ def get_loc(filename, strict, comments, silent):
     for comment in comments["single_line"]:
         # Simulate ^ and $ characters, as for some reason the re.MULTILINE flag doesn't work (and thus ^ and $ only
         # match at the beginning and at the end of the string, not at every line)
-        comm_single_regex = f"\n([ \t]*{esc_regex(comment)}.+[ \t]*)"                 
+        comm_single_regex = f"((^|\n)[ \t]*{esc_regex(comment)}.+[ \t]*)"                 
 
         # If in strict mode, remove all single line comments
         if strict:
             lines = re.sub(comm_single_regex, "", lines)
         else:
             # Collect all single line comments
-            comm_lines += re.findall(comm_single_regex, lines)
+            comm_lines += list(map(lambda x: x[0], re.findall(comm_single_regex, lines)))
 
 
     for start, stop in comments["multi_line"]:
-        comm_multi_regex = f"\n([ \t]*{esc_regex(start)}"\
+        comm_multi_regex = f"((^|\n)[ \t]*{esc_regex(start)}"\
                            f"((?!{esc_regex(stop)})[\\s\\S])*"\
                            f"{esc_regex(stop)}[ \t]*)" 
 
@@ -82,5 +82,9 @@ def get_loc(filename, strict, comments, silent):
         lines = list(filter(lambda x: len(x) > 0, lines.split('\n')))
     else:
         lines = lines.split('\n')
+        # Clean up comm lines
+        comm_lines = list(filter(lambda x: len(x) > 0, comm_lines))
+
+    print(comm_lines)
 
     return len(lines), len(comm_lines)

@@ -1,3 +1,4 @@
+/* First-line comment */
 #include <stdio.h>
 
 /*****

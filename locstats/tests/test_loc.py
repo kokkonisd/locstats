@@ -41,7 +41,7 @@ class TestLOC(unittest.TestCase):
                     strict=False,
                     comments=LANG_DATA['c']['comments'],
                     silent=False),
-            (18, 8)
+            (19, 9)
         )
 
         self.assertEqual(
