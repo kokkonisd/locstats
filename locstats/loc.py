@@ -85,6 +85,5 @@ def get_loc(filename, strict, comments, silent):
         # Clean up comm lines
         comm_lines = list(filter(lambda x: len(x) > 0, comm_lines))
 
-    print(comm_lines)
 
     return len(lines), len(comm_lines)
