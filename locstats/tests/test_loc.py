@@ -37,17 +37,17 @@ class TestLOC(unittest.TestCase):
         self.maxDiff = None
 
         self.assertEqual(
-            get_loc(os.path.join(BASE_DIR, "tests", "dummy_data", "test.c"),
-                    False,
-                    LANG_DATA['c']['comments'],
-                    False),
-            18
+            get_loc(filename=os.path.join(BASE_DIR, "tests", "dummy_data", "test.c"),
+                    strict=False,
+                    comments=LANG_DATA['c']['comments'],
+                    silent=False),
+            (18, 8)
         )
 
         self.assertEqual(
-            get_loc(os.path.join(BASE_DIR, "tests", "dummy_data", "test.c"),
-                    True,
-                    LANG_DATA['c']['comments'],
-                    False),
-            6
+            get_loc(filename=os.path.join(BASE_DIR, "tests", "dummy_data", "test.c"),
+                    strict=True,
+                    comments=LANG_DATA['c']['comments'],
+                    silent=False),
+            (6, 0)
         )

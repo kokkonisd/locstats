@@ -63,17 +63,18 @@ def main(language, src_dirs, strict, minimal, silent, detailed):
             silent = silent
         )
 
-        for file in source_files:
+        for filename in source_files:
             # Count the LOC in each file
             loc_count_per_file.append((
-                file,
-                get_loc(file = file,
+                filename,
+                get_loc(filename = filename,
                         strict = strict,
                         comments = LANG_DATA[language]["comments"],
                         silent = silent)
             ))
 
-    total_loc_count = sum(x[1] for x in loc_count_per_file)
+    total_loc_count = sum(x[1][0] for x in loc_count_per_file)
+    comm_line_count = sum(x[1][1] for x in loc_count_per_file)
 
     # Give the LOC count to the user
     if minimal:
@@ -85,24 +86,32 @@ def main(language, src_dirs, strict, minimal, silent, detailed):
         
         # Sort the files by descending LOC count
         loc_count_per_file = sorted(loc_count_per_file,
-                                    key = lambda x: x[1],
+                                    key = lambda x: x[1][0],
                                     reverse = True)
 
         # Get the maximum filename length (in order to format output later)
         max_filename_length = max(list(map(lambda x: len(x[0]),
                                            loc_count_per_file)))
+
+        # Print the "table"'s header
+        print(f"FILENAME {' ' * (max_filename_length - 8)} LOC (%)")
+        print("-" * (max_filename_length + 20))
+
         # Print the files, their LOC count and their % respective to the total
         # LOC count
-        for file, loc in loc_count_per_file:
-          print(f"{file}{' ' * (max_filename_length - len(file))} : "\
-                f"{loc} ({loc / total_loc_count * 100:.2f}%)")
+        for filename, (loc, comm_lines) in loc_count_per_file:
+          print(f"{filename}{' ' * (max_filename_length - len(filename))}: {loc} ({loc / total_loc_count * 100:.2f}%)")
 
-        print("----")
-        print(f"TOTAL LOC{' ' * (max_filename_length - 9)} : "\
-              f"{total_loc_count} (100%)")
+        print("-" * (max_filename_length + 20))
+        print(f"TOTAL LOC{' ' * (max_filename_length - 9)}: {total_loc_count} (100%)")
     else:
-        print(f"You have written approximately {total_loc_count} LOC in "\
-              f"{LANG_DATA[language]['official_name']}.")
+        print(f"You have written approximately {total_loc_count} LOC in {LANG_DATA[language]['official_name']}",
+              end='')
+
+        if (not strict) and (total_loc_count > 0):
+            print(f", {comm_line_count / total_loc_count * 100:.2f}% of which are comments.")
+        else:
+            print(".")
 
 
 if __name__ == "__main__":
