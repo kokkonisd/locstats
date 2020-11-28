@@ -75,6 +75,7 @@ def get_loc(filename, strict, comments, silent):
             # Collect all multi line comments
             raw_matches = list(map(lambda x: x[0], re.findall(comm_multi_regex, lines)))
             multi_comm_lines = list(map(lambda x: x.split('\n'), raw_matches)) 
+            # Flatten multi comm lines list
             comm_lines += [item for sublist in multi_comm_lines for item in sublist]
 
 
@@ -84,6 +85,5 @@ def get_loc(filename, strict, comments, silent):
         lines = lines.split('\n')
         # Clean up comm lines
         comm_lines = list(filter(lambda x: len(x) > 0, comm_lines))
-
 
     return len(lines), len(comm_lines)

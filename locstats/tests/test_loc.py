@@ -19,6 +19,7 @@ class TestLOC(unittest.TestCase):
                 os.path.join(BASE_DIR, '__main__.py'),
                 os.path.join(BASE_DIR, 'tests', 'test_loc.py'),
                 os.path.join(BASE_DIR, 'tests', 'test_definitions.py'),
+                os.path.join(BASE_DIR, 'tests', 'dummy_data', 'test.py')
             ])
         )
 
@@ -29,6 +30,7 @@ class TestLOC(unittest.TestCase):
             sorted([
                 os.path.join(BASE_DIR, 'tests', 'test_loc.py'),
                 os.path.join(BASE_DIR, 'tests', 'test_definitions.py'),
+                os.path.join(BASE_DIR, 'tests', 'dummy_data', 'test.py')
             ])
         )
 
@@ -50,4 +52,23 @@ class TestLOC(unittest.TestCase):
                     comments=LANG_DATA['c']['comments'],
                     silent=False),
             (6, 0)
+        )
+
+    def test_get_loc_corner_case(self):
+        self.maxDiff = None
+
+        self.assertEqual(
+            get_loc(filename=os.path.join(BASE_DIR, "tests", "dummy_data", "test.py"),
+                    strict=False,
+                    comments=LANG_DATA['python']['comments'],
+                    silent=False),
+            (2, 1)
+        )
+
+        self.assertEqual(
+            get_loc(filename=os.path.join(BASE_DIR, "tests", "dummy_data", "test.py"),
+                    strict=True,
+                    comments=LANG_DATA['python']['comments'],
+                    silent=False),
+            (1, 0)
         )
