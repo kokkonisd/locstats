@@ -62,7 +62,7 @@ class TestLOC(unittest.TestCase):
                     strict=False,
                     comments=LANG_DATA['python']['comments'],
                     silent=False),
-            (2, 1)
+            (2, 0)
         )
 
         self.assertEqual(

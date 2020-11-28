@@ -65,7 +65,7 @@ def get_loc(filename, strict, comments, silent):
     for start, stop in comments["multi_line"]:
         comm_multi_regex = f"((^|\n)[ \t]*{esc_regex(start)}"\
                            f"((?!{esc_regex(stop)})[\\s\\S])*"\
-                           f"{esc_regex(stop)}[ \t]*)" 
+                           f"{esc_regex(stop)}[ \t]*)\n"
 
 
         # If in strict mode, remove all multi line comments

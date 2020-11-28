@@ -5,14 +5,16 @@
 A Python tool that tells you approximately how many LOC (Lines Of Code) you
 have written in a given language.
 
-# what is locstats?
+---
+
+## what is locstats?
 
 Wondering how many LOC (Lines Of Code) you have written in a given language?
 Well, this is the tool for you! Given a programming language and a directory
 list, `locstats` calculates the amount of LOC you have written in that
 language.
 
-# installing locstats
+## installing locstats
 
 **Note: `locstats` is only compatible with Python 3.6 or newer.**
 
@@ -63,7 +65,7 @@ export PATH=/Users/kokkonisd/Library/Python/3.7/bin:$PATH
 If you still can't get `locstats` to run, please create new
 [issue](https://github.com/kokkonisd/locstats/issues) and we'll get to it ASAP.
 
-# using locstats
+## using locstats
 
 Using locstats is pretty simple! Let's say I want to find out my LOC count in C
 given all the C projects I have inside my `~/code/C/` folder:
@@ -114,7 +116,42 @@ __init__.py         : 2 (0.62%)
 TOTAL LOC           : 321 (100%)
 ```
 
-# contributing
+
+## supported languages
+
+Currenlty, we support the following languages:
+
+- C
+- C#
+- C++
+- CSS
+- D
+- Dart
+- F#
+- Fortran
+- Go
+- HTML
+- Java
+- JavaScript
+- Julia
+- LaTeX
+- Markdown
+- MATLAB
+- Objective-C
+- Perl
+- PHP
+- Python
+- R
+- Ruby
+- Rust
+- Swift
+- TypeScript
+- Verilog
+- VHDL
+- x86 assembly
+
+
+## contributing
 
 Do you want to contribute to an open source project? `locstats` needs your
 help! I've just started working on this project and there are still tons of
