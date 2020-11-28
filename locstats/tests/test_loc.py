@@ -257,6 +257,42 @@ class TestLOC(unittest.TestCase):
         )
 
 
+    def test_get_logc_javascript(self):
+        pass
+
+
+    def test_get_logc_julia(self):
+        pass
+
+
+    def test_get_logc_latex(self):
+        pass
+
+
+    def test_get_logc_markdown(self):
+        pass
+
+
+    def test_get_logc_matlab(self):
+        pass
+
+
+    def test_get_logc_mipsasm(self):
+        pass
+
+
+    def test_get_logc_objectivec(self):
+        pass
+
+
+    def test_get_logc_perl(self):
+        pass
+
+
+    def test_get_logc_php(self):
+        pass
+
+
     def test_get_loc_python(self):
         self.maxDiff = None
 
@@ -275,6 +311,38 @@ class TestLOC(unittest.TestCase):
                     silent=False),
             (1, 0)
         )
+
+
+    def test_get_logc_r(self):
+        pass
+
+
+    def test_get_logc_ruby(self):
+        pass
+
+
+    def test_get_logc_rust(self):
+        pass
+
+
+    def test_get_logc_swift(self):
+        pass
+
+
+    def test_get_logc_typescript(self):
+        pass
+
+
+    def test_get_logc_verilog(self):
+        pass
+
+
+    def test_get_logc_vhdl(self):
+        pass
+
+
+    def test_get_logc_x86asm(self):
+        pass
 
 
     def test_get_loc_python_corner_case(self):
