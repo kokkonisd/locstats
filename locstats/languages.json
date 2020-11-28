@@ -171,6 +171,15 @@
         }
     },
 
+    "mips": {
+        "official_name": "MIPS assembly",
+        "extensions": [ ".s", ".asm" ],
+        "comments" : {
+            "single_line": [ "#" ],
+            "multi_line": [ ]
+        }
+    },
+
     "objective-c": {
         "official_name": "Objective-C",
         "extensions": [ ".h", ".m", ".mm", ".M" ],
@@ -237,6 +246,17 @@
     "rust": {
         "official_name": "Rust",
         "extensions": [ ".rs", ".rlib" ],
+        "comments": {
+            "single_line": [ "//" ],
+            "multi_line": [
+                [ "/*", "*/" ]
+            ]
+        }
+    },
+
+    "sass": {
+        "official_name": "Sass",
+        "extensions": [ ".scss", ".sass" ],
         "comments": {
             "single_line": [ "//" ],
             "multi_line": [

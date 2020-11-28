@@ -137,6 +137,7 @@ Currenlty, we support the following languages:
 - LaTeX
 - Markdown
 - MATLAB
+- MIPS assembly
 - Objective-C
 - Perl
 - PHP
@@ -144,6 +145,7 @@ Currenlty, we support the following languages:
 - R
 - Ruby
 - Rust
+- Sass
 - Swift
 - TypeScript
 - Verilog

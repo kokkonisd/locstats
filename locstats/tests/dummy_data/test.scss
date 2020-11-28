@@ -1,0 +1,24 @@
+@import "main";
+
+// vertical alignment of everything on the top of the 404 page
+@import "front_block";
+
+// nav initialization (hidden & unclickable)
+nav {
+    opacity: 0;
+    pointer-events: none;
+}
+
+
+// 404 go home button
+#go-home {
+    font-size: 26pt;
+
+    a {
+        padding: 10px;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+}

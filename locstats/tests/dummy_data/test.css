@@ -1,0 +1,17 @@
+/* 404 go home button */
+#go-home {
+    font-size: 26pt;
+
+    /*
+     * just some
+     * dummy code really
+     * // hey hey hey */
+
+    a {
+        padding: 10px;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+}
