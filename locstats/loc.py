@@ -88,12 +88,11 @@ def get_loc(filename, strict, comments, silent):
             comm_lines += list(map(lambda x: x[0], re.findall(comm_single_regex, lines)))
 
 
+
     if strict:
         lines = list(filter(lambda x: len(x) > 0, lines.split('\n')))
     else:
         lines = lines.split('\n')
-        # Clean up comm lines
-        # comm_lines = list(filter(lambda x: len(x) > 0, comm_lines))
         
 
     return len(lines), len(comm_lines)

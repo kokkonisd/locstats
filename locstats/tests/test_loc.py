@@ -237,6 +237,26 @@ class TestLOC(unittest.TestCase):
         )
 
 
+    def test_get_loc_java(self):
+        self.maxDiff = None
+
+        self.assertEqual(
+            get_loc(filename=os.path.join(BASE_DIR, 'tests', 'dummy_data', 'test.java'),
+                    strict=False,
+                    comments=LANG_DATA['java']['comments'],
+                    silent=False),
+            (12, 5)
+        )
+
+        self.assertEqual(
+            get_loc(filename=os.path.join(BASE_DIR, 'tests', 'dummy_data', 'test.java'),
+                    strict=True,
+                    comments=LANG_DATA['java']['comments'],
+                    silent=False),
+            (5, 0)
+        )
+
+
     def test_get_loc_python(self):
         self.maxDiff = None
 
