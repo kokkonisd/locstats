@@ -120,7 +120,7 @@
 
     "javascript": {
         "official_name": "JavaScript",
-        "extensions": [ ".js" ],
+        "extensions": [ ".js" , ".jsx"],
         "comments": {
             "single_line": [ "//" ],
             "multi_line": [
