@@ -314,5 +314,18 @@
             "single_line": [ ";" ],
             "multi_line": [ ]
         }
+    },
+
+    "arduino-code": {
+        "official_name": "ArduinoCode",
+        "extensions": [ ".ino" ],
+        "comments": {
+            "single_line": [ "//" ],
+            "multi_line": [
+                [ "/*", "*/" ]
+            ]
+        }
     }
 }
+
+
