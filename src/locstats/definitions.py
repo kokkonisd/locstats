@@ -4,7 +4,7 @@ import os
 import json
 import pkg_resources
 
-__version_info__ = ("1", "0", "10")
+__version_info__ = ("1", "0", "11")
 __version__ = ".".join(__version_info__)
 __author__ = "Dimitri Kokkonis"
 
