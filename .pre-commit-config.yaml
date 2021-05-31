@@ -1,0 +1,29 @@
+repos:
+  - repo: https://github.com/pycqa/flake8
+    rev: 3.9.1
+    hooks:
+    - id: flake8
+      args: ["--config=.flake8"]
+      additional_dependencies:
+        - flake8-bugbear
+        - flake8-builtins
+        - flake8-comprehensions
+        - flake8-docstrings
+        - flake8-rst-docstrings
+        - pygments
+      exclude: tests/data/.*
+  - repo: https://github.com/psf/black
+    rev: 21.5b1
+    hooks:
+    - id: black
+      exclude: tests/data/.*
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v0.800
+    hooks:
+    - id: mypy
+      exclude: tests/.*
+  - repo: https://github.com/kokkonisd/prettyson
+    rev: 0.0.2
+    hooks:
+    - id: prettyson
+      files: languages\.json$

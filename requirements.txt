@@ -1,3 +1,8 @@
-setuptools
-wheel
-click
+black==21.5b1
+flake8==3.9.1
+mypy==0.800
+prettyson==0.0.2
+pre-commit==2.9.3
+tox==3.21.0
+pytest==6.2.4
+pytest-cov==2.12.0

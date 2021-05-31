@@ -1,0 +1,528 @@
+{
+    "c": {
+        "official_name": "C",
+        "extensions": [
+            ".c",
+            ".h"
+        ],
+        "comments": {
+            "single_line": [
+                "//"
+            ],
+            "multi_line": [
+                [
+                    "/*",
+                    "*/"
+                ]
+            ]
+        }
+    },
+    "c#": {
+        "official_name": "C#",
+        "extensions": [
+            ".cs"
+        ],
+        "comments": {
+            "single_line": [
+                "//"
+            ],
+            "multi_line": [
+                [
+                    "/*",
+                    "*/"
+                ]
+            ]
+        }
+    },
+    "c++": {
+        "official_name": "C++",
+        "extensions": [
+            ".cpp",
+            ".hpp",
+            ".cc",
+            ".hh"
+        ],
+        "comments": {
+            "single_line": [
+                "//"
+            ],
+            "multi_line": [
+                [
+                    "/*",
+                    "*/"
+                ]
+            ]
+        }
+    },
+    "css": {
+        "official_name": "CSS",
+        "extensions": [
+            ".css"
+        ],
+        "comments": {
+            "single_line": [],
+            "multi_line": [
+                [
+                    "/*",
+                    "*/"
+                ]
+            ]
+        }
+    },
+    "d": {
+        "official_name": "D",
+        "extensions": [
+            ".d"
+        ],
+        "comments": {
+            "single_line": [
+                "//"
+            ],
+            "multi_line": [
+                [
+                    "/*",
+                    "*/"
+                ]
+            ]
+        }
+    },
+    "dart": {
+        "official_name": "Dart",
+        "extensions": [
+            ".dart"
+        ],
+        "comments": {
+            "single_line": [
+                "//"
+            ],
+            "multi_line": [
+                [
+                    "/*",
+                    "*/"
+                ]
+            ]
+        }
+    },
+    "f#": {
+        "official_name": "F#",
+        "extensions": [
+            ".fs",
+            ".fsi",
+            ".fsx",
+            ".fsscript"
+        ],
+        "comments": {
+            "single_line": [
+                "//"
+            ],
+            "multi_line": [
+                [
+                    "(*",
+                    "*)"
+                ]
+            ]
+        }
+    },
+    "fortran": {
+        "official_name": "Fortran",
+        "extensions": [
+            ".f",
+            ".f4",
+            ".f90"
+        ],
+        "comments": {
+            "single_line": [
+                "!"
+            ],
+            "multi_line": []
+        }
+    },
+    "go": {
+        "official_name": "Go",
+        "extensions": [
+            ".go"
+        ],
+        "comments": {
+            "single_line": [
+                "//"
+            ],
+            "multi_line": [
+                [
+                    "/*",
+                    "*/"
+                ]
+            ]
+        }
+    },
+    "html": {
+        "official_name": "HTML",
+        "extensions": [
+            ".html",
+            ".htm"
+        ],
+        "comments": {
+            "single_line": [],
+            "multi_line": [
+                [
+                    "<!--",
+                    "-->"
+                ]
+            ]
+        }
+    },
+    "java": {
+        "official_name": "Java",
+        "extensions": [
+            ".java"
+        ],
+        "comments": {
+            "single_line": [
+                "//"
+            ],
+            "multi_line": [
+                [
+                    "/*",
+                    "*/"
+                ]
+            ]
+        }
+    },
+    "javascript": {
+        "official_name": "JavaScript",
+        "extensions": [
+            ".js",
+            ".jsx"
+        ],
+        "comments": {
+            "single_line": [
+                "//"
+            ],
+            "multi_line": [
+                [
+                    "/*",
+                    "*/"
+                ]
+            ]
+        }
+    },
+    "julia": {
+        "official_name": "Julia",
+        "extensions": [
+            ".jl"
+        ],
+        "comments": {
+            "single_line": [
+                "#"
+            ],
+            "multi_line": []
+        }
+    },
+    "latex": {
+        "official_name": "LaTeX",
+        "extensions": [
+            ".tex"
+        ],
+        "comments": {
+            "single_line": [
+                "%"
+            ],
+            "multi_line": [
+                [
+                    "\\iffalse",
+                    "\\fi"
+                ],
+                [
+                    "\\comment",
+                    "\\endcomment"
+                ],
+                [
+                    "\\begin{comment}",
+                    "\\end{comment}"
+                ]
+            ]
+        }
+    },
+    "markdown": {
+        "official_name": "Markdown",
+        "extensions": [
+            ".md",
+            ".markdown"
+        ],
+        "comments": {
+            "single_line": [
+                "[//]: # "
+            ],
+            "multi_line": []
+        }
+    },
+    "matlab": {
+        "official_name": "MATLAB",
+        "extensions": [
+            ".m"
+        ],
+        "comments": {
+            "single_line": [
+                "%"
+            ],
+            "multi_line": [
+                [
+                    "%{",
+                    "}%"
+                ]
+            ]
+        }
+    },
+    "mips": {
+        "official_name": "MIPS assembly",
+        "extensions": [
+            ".s",
+            ".asm"
+        ],
+        "comments": {
+            "single_line": [
+                "#"
+            ],
+            "multi_line": []
+        }
+    },
+    "objective-c": {
+        "official_name": "Objective-C",
+        "extensions": [
+            ".h",
+            ".m",
+            ".mm",
+            ".M"
+        ],
+        "comments": {
+            "single_line": [
+                "//"
+            ],
+            "multi_line": [
+                [
+                    "/*",
+                    "*/"
+                ]
+            ]
+        }
+    },
+    "perl": {
+        "official_name": "Perl",
+        "extensions": [
+            ".pl",
+            ".pm",
+            ".xs",
+            ".t",
+            ".pod"
+        ],
+        "comments": {
+            "single_line": [
+                "#"
+            ],
+            "multi_line": []
+        }
+    },
+    "php": {
+        "official_name": "PHP",
+        "extensions": [
+            ".php",
+            ".phtml"
+        ],
+        "comments": {
+            "single_line": [
+                "//"
+            ],
+            "multi_line": [
+                [
+                    "/*",
+                    "*/"
+                ]
+            ]
+        }
+    },
+    "python": {
+        "official_name": "Python",
+        "extensions": [
+            ".py"
+        ],
+        "comments": {
+            "single_line": [
+                "#"
+            ],
+            "multi_line": [
+                [
+                    "\"\"\"",
+                    "\"\"\""
+                ],
+                [
+                    "'''",
+                    "'''"
+                ]
+            ]
+        }
+    },
+    "r": {
+        "official_name": "R",
+        "extensions": [
+            ".r",
+            ".R",
+            ".RData",
+            ".rds",
+            ".rda"
+        ],
+        "comments": {
+            "single_line": [
+                "#"
+            ],
+            "multi_line": []
+        }
+    },
+    "ruby": {
+        "official_name": "Ruby",
+        "extensions": [
+            ".rb"
+        ],
+        "comments": {
+            "single_line": [
+                "#"
+            ],
+            "multi_line": [
+                [
+                    "=begin",
+                    "=end"
+                ]
+            ]
+        }
+    },
+    "rust": {
+        "official_name": "Rust",
+        "extensions": [
+            ".rs",
+            ".rlib"
+        ],
+        "comments": {
+            "single_line": [
+                "//"
+            ],
+            "multi_line": [
+                [
+                    "/*",
+                    "*/"
+                ]
+            ]
+        }
+    },
+    "sass": {
+        "official_name": "Sass",
+        "extensions": [
+            ".scss",
+            ".sass"
+        ],
+        "comments": {
+            "single_line": [
+                "//"
+            ],
+            "multi_line": [
+                [
+                    "/*",
+                    "*/"
+                ]
+            ]
+        }
+    },
+    "swift": {
+        "official_name": "Swift",
+        "extensions": [
+            ".swift"
+        ],
+        "comments": {
+            "single_line": [
+                "//"
+            ],
+            "multi_line": [
+                [
+                    "/*",
+                    "*/"
+                ]
+            ]
+        }
+    },
+    "typescript": {
+        "official_name": "TypeScript",
+        "extensions": [
+            ".ts",
+            ".tsx"
+        ],
+        "comments": {
+            "single_line": [
+                "//"
+            ],
+            "multi_line": [
+                [
+                    "/*",
+                    "*/"
+                ]
+            ]
+        }
+    },
+    "verilog": {
+        "official_name": "Verilog",
+        "extensions": [
+            ".v",
+            ".vh"
+        ],
+        "comments": {
+            "single_line": [
+                "//"
+            ],
+            "multi_line": [
+                [
+                    "/*",
+                    "*/"
+                ]
+            ]
+        }
+    },
+    "vhdl": {
+        "official_name": "VHDL",
+        "extensions": [
+            ".vhd",
+            ".vhdl"
+        ],
+        "comments": {
+            "single_line": [
+                "--"
+            ],
+            "multi_line": []
+        }
+    },
+    "x86asm": {
+        "official_name": "x86 assembly",
+        "extensions": [
+            ".s",
+            ".asm"
+        ],
+        "comments": {
+            "single_line": [
+                ";"
+            ],
+            "multi_line": []
+        }
+    },
+    "arduino-code": {
+        "official_name": "ArduinoCode",
+        "extensions": [
+            ".ino"
+        ],
+        "comments": {
+            "single_line": [
+                "//"
+            ],
+            "multi_line": [
+                [
+                    "/*",
+                    "*/"
+                ]
+            ]
+        }
+    }
+}
