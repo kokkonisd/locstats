@@ -22,8 +22,8 @@ setuptools.setup(
     install_requires=["click"],
     packages=["locstats"],
     package_dir={"locstats": "src/locstats"},
-    package_data={"locstats": ["src/locstats/data/languages.json"]},
     include_package_data=True,
+    package_data={"locstats": ["data/languages.json"]},
     entry_points={
         "console_scripts": [
             "locstats = locstats.__main__:main",

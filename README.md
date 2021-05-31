@@ -1,6 +1,7 @@
 # locstats
 
-![build status](https://travis-ci.org/kokkonisd/locstats.svg?branch=master)
+![CI](https://github.com/kokkonisd/locstats/workflows/CI/badge.svg)
+![codecov](https://codecov.io/gh/kokkonisd/locstats/branch/master/graph/badge.svg)
 
 A Python tool that tells you approximately how many LOC (Lines Of Code) you
 have written in a given language.
