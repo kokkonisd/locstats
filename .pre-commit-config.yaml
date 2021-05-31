@@ -26,4 +26,5 @@ repos:
     rev: 0.0.2
     hooks:
     - id: prettyson
+      args: ["--sort"]
       files: languages\.json$
