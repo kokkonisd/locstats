@@ -2,48 +2,72 @@
 
 import os
 import re
+from typing import List, Dict, Tuple, Any
 
 from .definitions import esc_regex, warn
 
 
-def get_source_files(src_dir, src_extensions, silent=False):
-    """Return a list of source files given a root directory and a file extension."""
-    source_files = []
+def get_source_files(
+    source_dir: str, source_file_extensions: List[str], silent: bool = False
+) -> List[str]:
+    """Return a list of source files given a root directory and a file extension.
 
-    if not os.path.exists(src_dir):
+    :param source_dir: the source directory (containing the source files)
+    :param source_file_extensions: the extensions of the source files to look for
+    :param silent: if True, run in silent mode
+    :return: the list of source files found
+    """
+    source_files: List[str] = []
+
+    if not os.path.exists(source_dir):
         if not silent:
-            warn(f"Source directory `{src_dir}` doesn't exist. Skipping.")
+            warn(f"Source directory `{source_dir}` doesn't exist. Skipping.")
         return source_files
 
-    if os.path.isfile(src_dir):
+    if not os.path.isdir(source_dir):
         if not silent:
-            warn(f"`{src_dir}` is a file, not a directory. Skipping.")
+            warn(f"`{source_dir}` is not a directory. Skipping.")
         return source_files
 
-    for dirpath, _dirnames, filenames in os.walk(src_dir):
+    for dirpath, _dirnames, filenames in os.walk(source_dir):
         for file in filenames:
             name, extension = os.path.splitext(os.path.join(dirpath, file))
-            if extension in src_extensions:
+            if extension in source_file_extensions:
                 source_files += [os.path.join(dirpath, file)]
 
     return source_files
 
 
-def get_loc(filename, strict, comments, silent=False):
+def get_loc(
+    source_file: str,
+    strict: bool,
+    comments: Dict[str, Any],
+    silent: bool = False,
+) -> Tuple[int, int]:
     """Return the LOC count and the comment-line count given a file.
 
     Optionally strip out comments and blank lines.
+
+    :param source_file: the path to the source file
+    :param strict: if True, do not count comments and empty lines
+    :param comments: the single-line and multi-line comments for the language of the
+        file
+    :param silent: if True, run in silent mode
+    :return: the LOC count and the comment-line count in tuple form: (loc, comments)
     """
-    with open(filename, "r") as source:
+    # Read the raw source code
+    with open(source_file, "r") as source:
         try:
             lines = source.read()
         except UnicodeDecodeError:
             if not silent:
-                warn(f"Could not read file `{filename}` (it's not UTF-8). Skipping.")
+                warn(f"Could not read file `{source_file}` (it's not UTF-8). Skipping.")
             return (0, 0)
 
     comm_lines = []
+    lines_of_code = []
 
+    # Handle multi-line comments
     for start, stop in comments["multi_line"]:
         comm_multi_regex = (
             f"((^|\n)[ \t]*{esc_regex(start)}"
@@ -56,23 +80,24 @@ def get_loc(filename, strict, comments, silent=False):
             lines = re.sub(comm_multi_regex, "\\2", lines)
         else:
             # Collect all multi line comments
-            raw_matches = list(map(lambda x: x[0], re.findall(comm_multi_regex, lines)))
-            multi_comm_lines = list(map(lambda x: x.split("\n"), raw_matches))
-
-            for section in multi_comm_lines:
-                if len(section) >= 1 and section[0] == "":
-                    section.pop(0)
-
-            # Flatten multi comm lines list
-            multi_comm_lines_flat = [
-                item for sublist in multi_comm_lines for item in sublist
+            #
+            # Because of the leading and trailing \n characters in the regex, sometimes
+            # an empty line will be prepended or appended, increasing the comment line
+            # count. In order to avoid that, we strip the matched multi-line comment
+            # before splitting it into lines.
+            multi_comm_lines = [
+                line
+                for match in re.findall(comm_multi_regex, lines)
+                for line in match[0].strip().split("\n")
             ]
-            comm_lines += multi_comm_lines_flat
+
+            comm_lines += multi_comm_lines
             # Strip multi-line comments to stop them from interfering with single-line ones
             lines = re.sub(comm_multi_regex, "\\2", lines)
             # Replace stripped multi-line comments with empty lines, line count should still be the same
-            lines += "\n" * len(multi_comm_lines_flat)
+            lines += "\n" * len(multi_comm_lines)
 
+    # Handle single-line comments
     for comment in comments["single_line"]:
         # Simulate ^ and $ characters, as for some reason the re.MULTILINE flag doesn't work (and thus ^ and $ only
         # match at the beginning and at the end of the string, not at every line)
@@ -83,13 +108,13 @@ def get_loc(filename, strict, comments, silent=False):
             lines = re.sub(comm_single_regex, "", lines)
         else:
             # Collect all single line comments
-            comm_lines += list(
-                map(lambda x: x[0], re.findall(comm_single_regex, lines))
-            )
+            comm_lines += [match[0] for match in re.findall(comm_single_regex, lines)]
 
     if strict:
-        lines = list(filter(lambda x: len(x) > 0, lines.split("\n")))
+        # Strip empty lines (comments have been replaced by empty lines at this point,
+        # so they will be stripped as well)
+        lines_of_code = [line for line in lines.split("\n") if line]
     else:
-        lines = lines.split("\n")
+        lines_of_code = lines.split("\n")
 
-    return len(lines), len(comm_lines)
+    return len(lines_of_code), len(comm_lines)

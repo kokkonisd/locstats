@@ -73,8 +73,8 @@ def locstats_main() -> int:
     for src in args.src_dirs:
         # Get all the source files from the given directories
         source_files = get_source_files(
-            src_dir=src,
-            src_extensions=LANG_DATA[language]["extensions"],
+            source_dir=src,
+            source_file_extensions=LANG_DATA[language]["extensions"],
             silent=args.silent,
         )
 
@@ -84,7 +84,7 @@ def locstats_main() -> int:
                 (
                     filename,
                     get_loc(
-                        filename=filename,
+                        source_file=filename,
                         strict=args.strict,
                         comments=LANG_DATA[language]["comments"],
                         silent=args.silent,

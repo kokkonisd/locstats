@@ -20,7 +20,7 @@ def test_get_files():
 
 def test_get_loc_c():
     result_full = get_loc(
-        filename=os.path.join(TEST_DATA_DIR, "test.c"),
+        source_file=os.path.join(TEST_DATA_DIR, "test.c"),
         strict=False,
         comments=LANG_DATA["c"]["comments"],
     )
@@ -28,7 +28,7 @@ def test_get_loc_c():
     assert result_full == expected_full
 
     result_strict = get_loc(
-        filename=os.path.join(TEST_DATA_DIR, "test.c"),
+        source_file=os.path.join(TEST_DATA_DIR, "test.c"),
         strict=True,
         comments=LANG_DATA["c"]["comments"],
     )
@@ -38,7 +38,7 @@ def test_get_loc_c():
 
 def test_get_loc_csharp():
     result_full = get_loc(
-        filename=os.path.join(TEST_DATA_DIR, "test.cs"),
+        source_file=os.path.join(TEST_DATA_DIR, "test.cs"),
         strict=False,
         comments=LANG_DATA["c#"]["comments"],
     )
@@ -46,7 +46,7 @@ def test_get_loc_csharp():
     assert result_full == expected_full
 
     result_strict = get_loc(
-        filename=os.path.join(TEST_DATA_DIR, "test.cs"),
+        source_file=os.path.join(TEST_DATA_DIR, "test.cs"),
         strict=True,
         comments=LANG_DATA["c#"]["comments"],
     )
@@ -56,7 +56,7 @@ def test_get_loc_csharp():
 
 def test_get_loc_cpp():
     result_full = get_loc(
-        filename=os.path.join(TEST_DATA_DIR, "test.cpp"),
+        source_file=os.path.join(TEST_DATA_DIR, "test.cpp"),
         strict=False,
         comments=LANG_DATA["c++"]["comments"],
     )
@@ -64,7 +64,7 @@ def test_get_loc_cpp():
     assert result_full == expected_full
 
     result_strict = get_loc(
-        filename=os.path.join(TEST_DATA_DIR, "test.cpp"),
+        source_file=os.path.join(TEST_DATA_DIR, "test.cpp"),
         strict=True,
         comments=LANG_DATA["c++"]["comments"],
     )
@@ -74,7 +74,7 @@ def test_get_loc_cpp():
 
 def test_get_loc_css():
     result_full = get_loc(
-        filename=os.path.join(TEST_DATA_DIR, "test.css"),
+        source_file=os.path.join(TEST_DATA_DIR, "test.css"),
         strict=False,
         comments=LANG_DATA["css"]["comments"],
     )
@@ -82,7 +82,7 @@ def test_get_loc_css():
     assert result_full == expected_full
 
     result_strict = get_loc(
-        filename=os.path.join(TEST_DATA_DIR, "test.css"),
+        source_file=os.path.join(TEST_DATA_DIR, "test.css"),
         strict=True,
         comments=LANG_DATA["css"]["comments"],
     )
@@ -92,7 +92,7 @@ def test_get_loc_css():
 
 def test_get_loc_d():
     result_full = get_loc(
-        filename=os.path.join(TEST_DATA_DIR, "test.d"),
+        source_file=os.path.join(TEST_DATA_DIR, "test.d"),
         strict=False,
         comments=LANG_DATA["d"]["comments"],
     )
@@ -100,7 +100,7 @@ def test_get_loc_d():
     assert result_full == expected_full
 
     result_strict = get_loc(
-        filename=os.path.join(TEST_DATA_DIR, "test.d"),
+        source_file=os.path.join(TEST_DATA_DIR, "test.d"),
         strict=True,
         comments=LANG_DATA["d"]["comments"],
     )
@@ -110,7 +110,7 @@ def test_get_loc_d():
 
 def test_get_loc_dart():
     result_full = get_loc(
-        filename=os.path.join(TEST_DATA_DIR, "test.dart"),
+        source_file=os.path.join(TEST_DATA_DIR, "test.dart"),
         strict=False,
         comments=LANG_DATA["dart"]["comments"],
     )
@@ -118,7 +118,7 @@ def test_get_loc_dart():
     assert result_full == expected_full
 
     result_strict = get_loc(
-        filename=os.path.join(TEST_DATA_DIR, "test.dart"),
+        source_file=os.path.join(TEST_DATA_DIR, "test.dart"),
         strict=True,
         comments=LANG_DATA["dart"]["comments"],
     )
@@ -128,7 +128,7 @@ def test_get_loc_dart():
 
 def test_get_loc_fsharp():
     result_full = get_loc(
-        filename=os.path.join(TEST_DATA_DIR, "test.fs"),
+        source_file=os.path.join(TEST_DATA_DIR, "test.fs"),
         strict=False,
         comments=LANG_DATA["f#"]["comments"],
     )
@@ -136,7 +136,7 @@ def test_get_loc_fsharp():
     assert result_full == expected_full
 
     result_strict = get_loc(
-        filename=os.path.join(TEST_DATA_DIR, "test.fs"),
+        source_file=os.path.join(TEST_DATA_DIR, "test.fs"),
         strict=True,
         comments=LANG_DATA["f#"]["comments"],
     )
@@ -146,7 +146,7 @@ def test_get_loc_fsharp():
 
 def test_get_loc_fortran():
     result_full = get_loc(
-        filename=os.path.join(TEST_DATA_DIR, "test.f"),
+        source_file=os.path.join(TEST_DATA_DIR, "test.f"),
         strict=False,
         comments=LANG_DATA["fortran"]["comments"],
     )
@@ -154,7 +154,7 @@ def test_get_loc_fortran():
     assert result_full == expected_full
 
     result_strict = get_loc(
-        filename=os.path.join(TEST_DATA_DIR, "test.f"),
+        source_file=os.path.join(TEST_DATA_DIR, "test.f"),
         strict=True,
         comments=LANG_DATA["fortran"]["comments"],
     )
@@ -164,7 +164,7 @@ def test_get_loc_fortran():
 
 def test_get_loc_go():
     result_full = get_loc(
-        filename=os.path.join(TEST_DATA_DIR, "test.go"),
+        source_file=os.path.join(TEST_DATA_DIR, "test.go"),
         strict=False,
         comments=LANG_DATA["go"]["comments"],
     )
@@ -172,7 +172,7 @@ def test_get_loc_go():
     assert result_full == expected_full
 
     result_strict = get_loc(
-        filename=os.path.join(TEST_DATA_DIR, "test.go"),
+        source_file=os.path.join(TEST_DATA_DIR, "test.go"),
         strict=True,
         comments=LANG_DATA["go"]["comments"],
     )
@@ -182,7 +182,7 @@ def test_get_loc_go():
 
 def test_get_loc_html():
     result_full = get_loc(
-        filename=os.path.join(TEST_DATA_DIR, "test.html"),
+        source_file=os.path.join(TEST_DATA_DIR, "test.html"),
         strict=False,
         comments=LANG_DATA["html"]["comments"],
     )
@@ -190,7 +190,7 @@ def test_get_loc_html():
     assert result_full == expected_full
 
     result_strict = get_loc(
-        filename=os.path.join(TEST_DATA_DIR, "test.html"),
+        source_file=os.path.join(TEST_DATA_DIR, "test.html"),
         strict=True,
         comments=LANG_DATA["html"]["comments"],
     )
@@ -200,7 +200,7 @@ def test_get_loc_html():
 
 def test_get_loc_java():
     result_full = get_loc(
-        filename=os.path.join(TEST_DATA_DIR, "test.java"),
+        source_file=os.path.join(TEST_DATA_DIR, "test.java"),
         strict=False,
         comments=LANG_DATA["java"]["comments"],
     )
@@ -208,7 +208,7 @@ def test_get_loc_java():
     assert result_full == expected_full
 
     result_strict = get_loc(
-        filename=os.path.join(TEST_DATA_DIR, "test.java"),
+        source_file=os.path.join(TEST_DATA_DIR, "test.java"),
         strict=True,
         comments=LANG_DATA["java"]["comments"],
     )
@@ -254,7 +254,7 @@ def test_get_logc_php():
 
 def test_get_loc_python():
     result_full = get_loc(
-        filename=os.path.join(TEST_DATA_DIR, "test.py"),
+        source_file=os.path.join(TEST_DATA_DIR, "test.py"),
         strict=False,
         comments=LANG_DATA["python"]["comments"],
     )
@@ -262,7 +262,7 @@ def test_get_loc_python():
     assert result_full == expected_full
 
     result_strict = get_loc(
-        filename=os.path.join(TEST_DATA_DIR, "test.py"),
+        source_file=os.path.join(TEST_DATA_DIR, "test.py"),
         strict=True,
         comments=LANG_DATA["python"]["comments"],
     )
@@ -304,7 +304,7 @@ def test_get_logc_x86asm():
 
 def test_get_loc_python_corner_case():
     result_full = get_loc(
-        filename=os.path.join(TEST_DATA_DIR, "corner_case.py"),
+        source_file=os.path.join(TEST_DATA_DIR, "corner_case.py"),
         strict=False,
         comments=LANG_DATA["python"]["comments"],
     )
@@ -312,7 +312,7 @@ def test_get_loc_python_corner_case():
     assert result_full == expected_full
 
     result_strict = get_loc(
-        filename=os.path.join(TEST_DATA_DIR, "corner_case.py"),
+        source_file=os.path.join(TEST_DATA_DIR, "corner_case.py"),
         strict=True,
         comments=LANG_DATA["python"]["comments"],
     )
