@@ -1,45 +1,57 @@
+#!/usr/bin/env python3
 """Define the entry point for the CLI tool."""
 
-import click
+import argparse
+import sys
 
 from .definitions import __version__, LANG_DATA, info
 from .loc import get_source_files, get_loc
 
 
-@click.command()
-@click.argument("language", nargs=1)  # Exactly one argument
-@click.argument("src_dirs", nargs=-1)  # Unlimited arguments
-@click.option(
-    "--strict",
-    is_flag=True,
-    default=False,
-    help="Run in strict mode (ignore comments and empty lines).",
-)
-@click.option(
-    "-m",
-    "--minimal",
-    is_flag=True,
-    default=False,
-    help="Give minimal output (just the LOC count).",
-)
-@click.option(
-    "--silent",
-    is_flag=True,
-    default=False,
-    help="Silence all warnings (such as directories not being " "found).",
-)
-@click.option(
-    "-d",
-    "--detailed",
-    is_flag=True,
-    default=False,
-    help="Output a detaled list of LOC per file.",
-)
-@click.version_option(version=__version__, prog_name="locstats")
-def main(language, src_dirs, strict, minimal, silent, detailed) -> None:
+def locstats_main() -> int:
     """Count the LOC in a given language in a given directory set."""
-    # Convert user-fed language to lowercase (see `languages.json`)
-    language = language.lower()
+    arg_parser = argparse.ArgumentParser()
+    arg_parser.description = (
+        "Determine the number of Lines Of Code written in a given language."
+    )
+    arg_parser.add_argument("language", nargs=1, help="the language to count LOC in")
+    arg_parser.add_argument(
+        "src_dirs", nargs="+", help="the directories in which to look for source files"
+    )
+    arg_parser.add_argument(
+        "--strict",
+        action="store_true",
+        help="run in strict mode (ignore comments and empty lines)",
+    )
+    arg_parser.add_argument(
+        "-m",
+        "--minimal",
+        action="store_true",
+        help="give minimal output (just the LOC count)",
+    )
+    arg_parser.add_argument(
+        "--silent",
+        action="store_true",
+        help="silence all warnings (such as directories not being found)",
+    )
+    arg_parser.add_argument(
+        "-d",
+        "--detailed",
+        action="store_true",
+        help="output a detailed list of LOC per file",
+    )
+    arg_parser.add_argument(
+        "-v",
+        "--version",
+        help="print the version of locstats",
+        action="version",
+        version=f"locstats, version {__version__}",
+    )
+    args = arg_parser.parse_args()
+    assert args is not None
+
+    # Convert user-fed language to lowercase (see `data/languages.json`)
+    language = args.language[0].lower()
     # Check if language exists in database
     if language not in LANG_DATA:
         info(
@@ -54,14 +66,16 @@ def main(language, src_dirs, strict, minimal, silent, detailed) -> None:
             "If you'd like to contribute, you can check out locstats' "
             "GitHub page: https://github.com/kokkonisd/locstats"
         )
-        exit(1)
+        return 1
 
     loc_count_per_file = []
 
-    for src in src_dirs:
+    for src in args.src_dirs:
         # Get all the source files from the given directories
         source_files = get_source_files(
-            src_dir=src, src_extensions=LANG_DATA[language]["extensions"], silent=silent
+            src_dir=src,
+            src_extensions=LANG_DATA[language]["extensions"],
+            silent=args.silent,
         )
 
         for filename in source_files:
@@ -71,9 +85,9 @@ def main(language, src_dirs, strict, minimal, silent, detailed) -> None:
                     filename,
                     get_loc(
                         filename=filename,
-                        strict=strict,
+                        strict=args.strict,
                         comments=LANG_DATA[language]["comments"],
-                        silent=silent,
+                        silent=args.silent,
                     ),
                 )
             )
@@ -85,10 +99,10 @@ def main(language, src_dirs, strict, minimal, silent, detailed) -> None:
     comm_line_count = sum(x[1][1] for x in loc_count_per_file)
 
     # Give the LOC count to the user
-    if minimal:
+    if args.minimal:
         # Just print the number
         print(total_loc_count)
-    elif detailed:
+    elif args.detailed:
         # Print the filenames along with their LOC count and the percentage of
         # the total LOC count they represent
 
@@ -119,13 +133,14 @@ def main(language, src_dirs, strict, minimal, silent, detailed) -> None:
             end="",
         )
 
-        if (not strict) and (total_loc_count > 0):
+        if (not args.strict) and (total_loc_count > 0):
             print(
                 f", {comm_line_count / total_loc_count * 100:.2f}% of which are comments."
             )
         else:
             print(".")
+    return 0
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(locstats_main())
