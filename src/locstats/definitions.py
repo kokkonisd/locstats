@@ -13,23 +13,39 @@ LANG_FILE = pkg_resources.resource_filename(__name__, "data/languages.json")
 LANG_DATA = json.loads(pkg_resources.resource_string(__name__, "data/languages.json"))
 
 
-def info(message, ending="\n"):
-    """Print a colored info message."""
+def info(message: str, ending: str = "\n") -> None:
+    """Print a colored info message.
+
+    :param message: the message to print
+    :param ending: the string to print after the message (newline by default)
+    """
     print(f"\033[33m{message}\033[0m", end=ending)
 
 
-def warn(message, ending="\n"):
-    """Print a colored warning message."""
+def warn(message: str, ending: str = "\n") -> None:
+    """Print a colored warning message.
+
+    :param message: the message to print
+    :param ending: the string to print after the message (newline by default)
+    """
     print(f"\033[91m/!\\ {message}\033[0m", end=ending)
 
 
-def fail(message, ending="\n"):
-    """Print a colored error message."""
+def fail(message: str, ending: str = "\n") -> None:
+    """Print a colored error message.
+
+    :param message: the message to print
+    :param ending: the string to print after the message (newline by default)
+    """
     print(f"\033[31m{message}\033[0m", end=ending)
 
 
-def esc_regex(string):
-    """Escape non-literal regex characters in a string."""
+def esc_regex(string: str) -> str:
+    """Escape non-literal regex characters in a string.
+
+    :param string: the string to escape characters from
+    :return: the string with escaped characters
+    """
     return (
         string.replace("[", "\\[")
         .replace("]", "\\]")

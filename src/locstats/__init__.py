@@ -1,1 +1,1 @@
-name = "locstats"
+name: str = "locstats"
