@@ -19,14 +19,13 @@ setuptools.setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    install_requires=["click"],
     packages=["locstats"],
     package_dir={"locstats": "src/locstats"},
     include_package_data=True,
     package_data={"locstats": ["data/languages.json"]},
     entry_points={
         "console_scripts": [
-            "locstats = locstats.__main__:main",
+            "locstats = locstats.__main__:locstats_main",
         ],
     },
     python_requires=">=3.6",
