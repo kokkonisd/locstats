@@ -23,22 +23,11 @@ def locstats_main() -> int:
         action="store_true",
         help="run in strict mode (ignore comments and empty lines)",
     )
-    arg_parser.add_argument(
-        "-m",
-        "--minimal",
-        action="store_true",
-        help="give minimal output (just the LOC count)",
-    )
+
     arg_parser.add_argument(
         "--silent",
         action="store_true",
         help="silence all warnings (such as directories not being found)",
-    )
-    arg_parser.add_argument(
-        "-d",
-        "--detailed",
-        action="store_true",
-        help="output a detailed list of LOC per file",
     )
     arg_parser.add_argument(
         "-v",
@@ -46,6 +35,20 @@ def locstats_main() -> int:
         help="print the version of locstats",
         action="version",
         version=f"locstats, version {__version__}",
+    )
+    # Make a verbosity group to add mutually exclusive options
+    verbosity_arg_group = arg_parser.add_mutually_exclusive_group()
+    verbosity_arg_group.add_argument(
+        "-m",
+        "--minimal",
+        action="store_true",
+        help="give minimal output (just the LOC count)",
+    )
+    verbosity_arg_group.add_argument(
+        "-d",
+        "--detailed",
+        action="store_true",
+        help="output a detailed list of LOC per file",
     )
     args = arg_parser.parse_args()
     assert args is not None
