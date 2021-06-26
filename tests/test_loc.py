@@ -18,6 +18,24 @@ def test_get_files():
     assert sorted(result) == sorted(expected)
 
 
+def test_non_existing_directory():
+    """Test with a directory that does not exist."""
+    result = get_source_files(
+        source_dir="thisistotallyadirectorythatexistsyepsure",
+        source_file_extensions=".py",
+    )
+    assert result == []
+
+
+def test_file_instead_of_directory():
+    """Test with a file instead of a directory."""
+    result = get_source_files(
+        source_dir=os.path.join(BASE_DIR, "__init__.py"),
+        source_file_extensions=".py",
+    )
+    assert result == []
+
+
 def test_get_loc_c():
     result_full = get_loc(
         source_file=os.path.join(TEST_DATA_DIR, "test.c"),
