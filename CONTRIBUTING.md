@@ -22,8 +22,12 @@ If you'd like to contribute to locstats, please follow these steps:
    (venv) $ pre-commit install
    ```
 5. Develop your local changes. Don't forget to test by running `tox -s`!
-6. Commit local changes, pass pre-commit checks, and push to remote.
-7. Create a pull request. It is **greatly** appreciated if you mention an
+6. Write a test. Add a `test.<extension>` file in `tests/data/` (for example, `test.c`
+   for the C language), and fill in the appropriate LOC information in
+   `TEST_LANGUAGE_DATA` in `tests/test_loc.py`. Make sure to include single _and_
+   multiline comments if possible.
+7. Commit local changes, pass pre-commit checks, and push to remote.
+8. Create a pull request. It is **greatly** appreciated if you mention an
    [issue](https://github.com/kokkonisd/locstats/issues) on your PR (or create _then_
    mention it if it doesn't already exist).
 
