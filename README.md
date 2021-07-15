@@ -156,9 +156,4 @@ Currenlty, we support the following languages:
 
 ## contributing
 
-Do you want to contribute to an open source project? `locstats` needs your
-help! I've just started working on this project and there are still tons of
-things to add (mainly other programming languages in the `languages.json` 
-file!).
-
-So go ahead, fork this repo, write some code and make a pull request :)
+Please read [CONTRIBUTING.md](https://github.com/kokkonisd/locstats/blob/master/CONTRIBUTING.md) :)
