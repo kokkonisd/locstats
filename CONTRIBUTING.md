@@ -8,7 +8,7 @@ If you'd like to contribute to locstats, please follow these steps:
    command:
 
    ```text
-   $ python3 -m venv venv/      # Create the virtualenv
+   $ python3 -m venv venv/     # Create the virtualenv
    $ source venv/bin/activate  # And now activate it
    ```
 3. Install the regular dependencies & developer dependencies:
