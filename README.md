@@ -122,6 +122,7 @@ TOTAL LOC           : 321 (100%)
 
 Currenlty, we support the following languages:
 
+- ArduinoCode
 - C
 - C#
 - C++
