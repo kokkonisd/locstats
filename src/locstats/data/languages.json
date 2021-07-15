@@ -1,4 +1,17 @@
 {
+    "ada": {
+        "comments": {
+            "multi_line": [],
+            "single_line": [
+                "--"
+            ]
+        },
+        "extensions": [
+            ".adb",
+            ".ads"
+        ],
+        "official_name": "Ada"
+    },
     "arduino-code": {
         "comments": {
             "multi_line": [
