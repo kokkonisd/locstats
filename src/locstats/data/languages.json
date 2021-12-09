@@ -537,5 +537,17 @@
             ".asm"
         ],
         "official_name": "x86 assembly"
+    },
+        "gdscript": {
+        "comments": {
+            "multi_line": [],
+            "single_line": [
+                "#"
+            ]
+        },
+        "extensions": [
+            ".gd"
+        ],
+        "official_name": "GDScript"
     }
 }
