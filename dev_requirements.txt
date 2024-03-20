@@ -1,4 +1,4 @@
-black==21.5b1
+black==24.3.0
 flake8==3.9.1
 mypy==0.800
 prettyson==0.0.2
